@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>BingeQL</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    pre {
+      overflow-x: auto;
+      /* Enable horizontal scrolling if needed */
+      white-space: pre-wrap;
+      /* Preserve line breaks and wrap long lines */
+      max-width: 100%;
+      /* Ensure the pre tag does not overflow its container */
+      overflow-wrap: anywhere;
+    }
+    .head1{
+      -webkit-text-stroke: 2px black;
+    }
+    .head2{
+      -webkit-text-stroke: 0.5px black;
+    }
+  </style>
+  <link rel="icon" href="./favicon.ico" type="image/x-icon">
+</head>
+
+<body class="bg-[url('https://wallpaperbat.com/img/642128-anime-solo-leveling.png')] md:bg-[url('https://images4.alphacoders.com/687/687987.jpg')] bg-cover bg-fixed">
+  <header>
+    <div class="flex flex-col justify-center space-y-5 mt-10">
+      <div class="head1 text-white md:text-black text-5xl text-center font-bold">Welcome to BingeQL API Documentation</div>
+      <div class="head2 text-white md:text-black text-center font-semibold">Explore the world of movies and TV shows with BingeQL, a GraphQL API
+        designed to provide
+        seamless access to
+        an extensive
+        collection of entertainment data. Whether you're building a movie recommendation app, creating a TV show
+        tracking
+        platform, or enhancing your media-related project, BingeQL is your gateway to a treasure trove of information.
+      </div>
+    </div>
+  </header>
+  <section>
+    <div class="h-fit flex flex-col items-center justify-center">
+      <div class="h-fit pb-10 md:w-[50%]">
+        <div class="flex justify-center items-center px-10 md:px-10 h-fit p-10">
+          <textarea name="" id="tab" spellcheck="false" placeholder="Type your GraphQl Query"
+            class="h-80 w-[18rem] md:w-80 resize-none text-blue-900 border p-2 border-black rounded-xl"></textarea>
+        </div>
+        <div class="flex justify-center -my-5">
+          <button class="bg-green-500 hover:bg-green-600 rounded h-fit w-fit p-3" onclick="Run()">Run
+            Query</button>
+        </div>
+      </div>
+      <div class="h-fit lg:px-60">
+        <pre id="res" class="text-left p-7 h-fit rounded-xl bg-white hidden"></pre>
+      </div>
+    </div>
+  </section>
+  <script>
+    const tab = document.getElementById("tab");
+    const res = document.getElementById("res");
+    tab.value = `query ExampleQuery {
+  Movies {
+    movieName,
+    movieDescription,
+    releaseYear,
+    movieThumbnail,
+    movieTags
+  }
+}`;
+
+    const Run = async () => {
+      let Query = tab.value;
+      //console.log(Query)
+      try {
+        let tmp = await fetch('https://75382dee-a387-4894-a7cf-978d1a7a554c-00-wpx15seg7jwk.pike.repl.co/graphql', {
+          method: 'POST',
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            query: Query
+          })
+        });
+        tmp = await tmp.json();
+        //console.log(tmp);
+        res.style.display = 'block';
+        res.innerText = JSON.stringify(tmp, null, 2);
+        tab.classList.remove('border-red-500');
+        tab.classList.add('border-black');
+      } catch (error) {
+        res.innerText = error;
+        tab.classList.remove('border-black');
+        tab.classList.add('border-red-500');
+      }
+    }
+  </script>
+</body>
+
+</html>
