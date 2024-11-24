@@ -2,10 +2,10 @@ import './App.css'
 import Nav from './components/Nav'
 import Genre from './components/Genre'
 import { useState, createContext } from 'react'
-import Banner from './components/banner';
+import Banner from './components/Banner';
 import Home from './components/Home';
 import { SimpleFooter } from './components/footer';
-import Search from './components/search';
+import Search from './components/Search';
 
 const parent = createContext();
 
