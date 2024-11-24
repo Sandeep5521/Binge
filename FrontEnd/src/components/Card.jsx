@@ -11,7 +11,7 @@ import { parent } from '../App';
 const Label = ({ title, thumb,tags }) => {
     //const view = useContext(Parent);
     const gotoComp = useContext(parent)
-    const Tags = tags.map((cur) => <div key={useId()+1} className='bg-black px-2 rounded hover:bg-orange-500' onClick={()=>{
+    const Tags = tags.map((cur) => <div key={useId()+1} className='bg-black text-white px-2 rounded hover:bg-orange-500' onClick={()=>{
         gotoComp({
             display:'genre',
             data:cur
