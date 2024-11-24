@@ -8,7 +8,7 @@ import {
 import { parent } from '../App';
 //import { Parent } from './main';
 
-const Label = ({ title, thumb,tags }) => {
+const Label = ({ title, thumb,tags,id }) => {
     //const view = useContext(Parent);
     const gotoComp = useContext(parent)
     const Tags = tags.map((cur) => <div key={useId()+1} className='bg-black text-white px-2 rounded hover:bg-orange-500' onClick={()=>{
@@ -19,7 +19,12 @@ const Label = ({ title, thumb,tags }) => {
     }}>{cur}</div>)
 
     return (
-        <Card className="mt-6 w-[90%] bg-white  dark:border-black dark:border-4 p-4 hover:scale-105 cursor-pointer dark:bg-opacity-20">
+        <Card className="mt-6 w-[90%] bg-white  dark:border-black dark:border-4 p-4 hover:scale-105 cursor-pointer dark:bg-opacity-20" onClick={()=>{
+            gotoComp({
+              display:'page',
+              data:id
+            })
+        }}>
             <CardHeader color="blue-gray" className="relative h-fit -my-10 flex justify-center">
                 <img className={`rounded-xl shadow-xl`} src={thumb} alt="img-blur-shadow" layout="fill" />
             </CardHeader>

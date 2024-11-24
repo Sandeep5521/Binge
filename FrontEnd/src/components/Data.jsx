@@ -4,7 +4,7 @@ import nosearch from '../images/noSearch.png'
 
 const Data = ({list}) => {
     //console.log("list is => ",list)
-    const renderItem = list.map((cur) => <Label key={cur._id} title={cur.movieName} thumb={cur.movieThumbnail} tags={cur.movieTags} />)
+    const renderItem = list.map((cur) => <Label key={cur._id} id={cur._id} title={cur.movieName} thumb={cur.movieThumbnail} tags={cur.movieTags} />)
     const Cdata = () =>{
       if(list.length == 0){
         return <div className='flex items-center justify-center h-screen p-5'>
