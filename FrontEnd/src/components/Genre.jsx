@@ -8,7 +8,7 @@ export default function Genre({ data }) {
   const [genre, setGenre] = useState([]);
   const [Text, setText] = useState("");
   async function getGenre() {
-    let tmp = await fetch('http://localhost:3000/graphQL', {
+    let tmp = await fetch('https://bingeql.onrender.com/graphQL', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
