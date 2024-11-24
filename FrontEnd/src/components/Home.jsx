@@ -1,6 +1,6 @@
 // import Swiper core and required modules
 import { Navigation, Pagination, Scrollbar, A11y,Keyboard,Autoplay } from 'swiper/modules';
-import Banner from './banner';
+import Banner from './Banner';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 
