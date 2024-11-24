@@ -100,7 +100,7 @@ function NavListMenu({ setOpen }) {
         placement="bottom"
       >
         <MenuHandler>
-          <Typography as="div" variant="small" className="font-medium">
+          <Typography as="div" variant="small" className="font-medium z-20">
             <ListItem
               className="flex items-center gap-2 px-0.5 py-0 font-medium text-gray-900"
               selected={isMenuOpen || isMobileMenuOpen}
