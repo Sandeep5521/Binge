@@ -59,7 +59,7 @@ function NavListMenu({ setOpen }) {
               color="blue-gray"
               className="flex items-center text-sm font-bold"
             >
-              {tagName}
+              {tagName.charAt(0).toUpperCase() + tagName.slice(1)}
             </Typography>
           </div>
         </MenuItem>
@@ -84,7 +84,7 @@ function NavListMenu({ setOpen }) {
               color="blue-gray"
               className="flex items-center hover:text-orange-500 text-sm font-bold"
             >
-              {tagName}
+              {tagName.charAt(0).toUpperCase() + tagName.slice(1)}
             </Typography>
           </div>
         </MenuItem>
