@@ -65,7 +65,7 @@ const Product = ({id}) => {
       </div>
       <section className='bg-black p-5'>
         <div className='flex md:justify-center md:space-x-10 md:items-center flex-col md:flex-row'>
-          <div className='bg-red-500 md:w-[40rem] space-y-3 text-white'>
+          <div className=' md:w-[40rem] space-y-3 text-white'>
             <h1 className='text-3xl font-semibold'>{(Data.movieName)? Data.movieName.charAt(0).toUpperCase() + Data.movieName.slice(1):"Movie Name"}</h1>
             <div className=''>{
               ((Data.movieTags)? ((Data.movieTags.indexOf("english") != -1 || Data.movieTags.indexOf("hindi") != -1)? "Dub":"Sub"):"")
