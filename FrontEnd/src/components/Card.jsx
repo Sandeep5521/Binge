@@ -16,7 +16,7 @@ const Label = ({ title, thumb, tags, id }) => {
             display: 'genre',
             data: cur
         })
-    }}>{cur}</div>)
+    }}>{cur.charAt(0).toUpperCase() + cur.slice(1)}</div>)
 
     return (
         <Card className="mt-6 w-[90%] bg-white  dark:border-black dark:border-4 p-4 hover:scale-105 cursor-pointer dark:bg-opacity-20">

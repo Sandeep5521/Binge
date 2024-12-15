@@ -30,7 +30,7 @@ export default function App() {
   const Page = () =>{
     if(Comp.display == 'genre') return <Genre data={Comp.data}/>
     if(Comp.display == 'search') return <Search/>
-    if(Comp.display == 'page') return <Product/>
+    if(Comp.display == 'page') return <Product id={Comp.data}/>
     return <Home/>
   }
 
