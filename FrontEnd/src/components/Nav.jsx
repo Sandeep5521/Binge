@@ -268,7 +268,7 @@ export default function NavbarSimple() {
           }}
         >
           <div className={`flex space-x-1.5`}>
-            <img src={`${logo}`} className={`w-8 h-8 scale-[5] ml-12 `} />
+            <img src={`${logo}`} className={`w-8 h-5 scale-[5] ml-12 `} />
             {/* <div>Binge</div> */}
           </div>
         </Typography>
