@@ -118,7 +118,8 @@ const startServer = async () =>{
         UpdateMovieThumbnail(movieId:ID,thumbnail:String):Movie,
         CreateMovie(id:ID,movie:IMovie):Movie,
         CreateShow(id:ID,show:IShow):Show,
-        DeleteMovie(id:ID):Movie
+        DeleteMovie(id:ID):Movie,
+        UpdateMovieShots(movieId:ID,screenShots:String):Movie,
       }
     `,
     resolvers:{
@@ -237,6 +238,23 @@ const startServer = async () =>{
             );
             //console.log(result);
           }
+          return tmp;
+        },
+        UpdateMovieShots:async (parent,{movieId,screenShots},contextValue)=>{
+          if(!contextValue.token) throw new Error('You are not authorized to perform this action.');
+          if(!movieId) throw new Error('movieId is required.');
+          let Shots = screenShots.split(',');
+          //console.log(Shots);
+          const tmp = await Movies.findOneAndUpdate(
+            { _id: movieId },
+            {
+              //$push: { movieShots: req.body },
+              $set: { 
+                movieShots:Shots,
+                date: Date.now()
+               },
+            }
+          );
           return tmp;
         }
       },

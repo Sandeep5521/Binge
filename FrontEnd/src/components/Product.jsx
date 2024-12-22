@@ -56,6 +56,16 @@ const Product = ({id}) => {
     return <></>
   }
 
+  const ShowShots = () =>{
+    let li = Data.movieShots;
+    if(Data && li){
+      return li.map((cur)=>{
+          return <img src={cur} />
+      })
+    }
+    return <></>
+  }
+
   return (
     <>
       <div className={`h-fit bg-contain bg-[url('${Data.movieThumbnail}')] `} style={{backgroundImage: `url(${Data.movieThumbnail})`}}>
@@ -64,7 +74,7 @@ const Product = ({id}) => {
         </div>
       </div>
       <section className='bg-black p-5'>
-        <div className='flex md:justify-center md:space-x-10 md:items-center flex-col md:flex-row'>
+        <div className='flex md:justify-center space-y-10 md:space-y-0 md:space-x-10 flex-col md:flex-row'>
           <div className=' md:w-[40rem] space-y-3 text-white'>
             <h1 className='text-3xl font-semibold'>{(Data.movieName)? Data.movieName.charAt(0).toUpperCase() + Data.movieName.slice(1):"Movie Name"}</h1>
             <div className=''>{
@@ -88,9 +98,10 @@ const Product = ({id}) => {
               </div>
             </div>
           </div>
-          <div className='bg-blue-500 md:w-80 h-fit'>
+          <div className='bg-blue-500 md:w-80'>
             <div>
-              <img src="" alt="" />
+              {/* <img src="https://catimages.org/images/2023/04/17/kat2023-04-17-07h38m56s512.jpg" alt="" /> */}
+              <ShowShots/>
             </div>
           </div>
         </div>
