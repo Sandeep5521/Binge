@@ -10,13 +10,13 @@ import { parent } from '../App';
 
 const Label = ({ title, thumb, tags, id }) => {
     //const view = useContext(Parent);
-    const gotoComp = useContext(parent)
-    const Tags = tags.map((cur) => <div key={useId() + 1} className='bg-black text-white px-2 rounded hover:bg-orange-500' onClick={() => {
+    const gotoComp = useContext(parent)   
+    const Tags = (tags.length == 0)? tags.map((cur) => <div key={useId() + 1} className='bg-black text-white px-2 rounded hover:bg-orange-500' onClick={() => {
         gotoComp({
             display: 'genre',
             data: cur
         })
-    }}>{cur.charAt(0).toUpperCase() + cur.slice(1)}</div>)
+    }}>{cur.charAt(0).toUpperCase() + cur.slice(1)}</div>):<></>
 
     return (
         <Card className="mt-6 w-[90%] bg-white  dark:border-black dark:border-4 p-4 hover:scale-105 cursor-pointer dark:bg-opacity-20">
