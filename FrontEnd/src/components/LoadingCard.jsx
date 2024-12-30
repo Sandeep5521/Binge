@@ -13,7 +13,7 @@ const LoadingCard = () => {
         </CardHeader>
         <CardBody className="mt-[20%] text-center">
             <Typography variant="h5" color="blue-gray" className="mb-2 dark:text-white animate-pulse" >
-                Loading...
+                <span className='animate-pulse'>Loading...</span>
             </Typography>
             <Typography variant="h5" color="blue-gray" className="flex flex-wrap items-center justify-center space-x-2 space-y-1 dark:text-white">
                 <div className='bg-gray-200 h-8 w-20 mt-0.5 text-white px-2 rounded hover:bg-orange-500 animate-pulse' />
