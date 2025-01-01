@@ -1,6 +1,7 @@
 // import Swiper core and required modules
 import { Navigation, Pagination, Scrollbar, A11y,Keyboard,Autoplay } from 'swiper/modules';
 import Banner from './Banner';
+import DataCorosal from './DataCorosal';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -12,6 +13,7 @@ const Home = () => {
   return (
     <>
       <Banner/>
+      <DataCorosal/>
     </>
   )
 }
