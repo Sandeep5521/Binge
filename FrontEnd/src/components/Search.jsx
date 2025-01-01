@@ -59,7 +59,11 @@ const Search = () => {
   return (
     <div>
       <div className={`bg-[#141519] h-16 lg:h-24 flex justify-center items-center`}>
-        <input autoFocus type="text" className='h-10 lg:h-14 pr-10 bg-transparent border-b-2 border-b-orange-600 outline-none text-white text-xl lg:text-3xl w-[90%] lg:w-[60%]' placeholder='Search...' value={Text} onChange={(event) => {
+        <input autoFocus type="text" id='text' className='h-10 lg:h-14 pr-10 bg-transparent border-b-2 border-b-orange-600 outline-none text-white text-xl lg:text-3xl w-[90%] lg:w-[60%]' placeholder='Search...' value={Text} onKeyDown={(event)=>{
+          if(event.key === 'Enter'){
+            event.target.blur(); // for unfocusing the input field
+          }
+        }} onChange={(event) => {
           setText(event.target.value);
         }} />
         <img src={close} className={`w-5 absolute right-6 sm:right-11 lg:right-[19.5rem] cursor-pointer lg:top-[7.2rem] ${(Text.length > 0) ? 'block' : 'hidden'}`} onClick={() => {
