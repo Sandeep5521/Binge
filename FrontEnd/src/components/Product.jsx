@@ -2,9 +2,9 @@ import React, { useContext, useEffect, useState } from 'react'
 import { parent } from '../App';
 
 const Product = ({ id }) => {
-
   const gotoComp = useContext(parent);
   const [Data, setData] = useState({});
+
   const getProductData = async () => {
     let tmp = await fetch('https://bingeql.onrender.com/graphQL', {
       method: 'POST',
@@ -58,7 +58,7 @@ const Product = ({ id }) => {
     if (Data && li) {
       console.log('list is => ', li)
       return li.map((cur) => {
-        return <div className='bg-orange-500 px-2 py-1 m-1 hover:scale-105 cursor-pointer' onClick={() => {
+        return <div className='bg-orange-500 text-white px-2 py-1 m-1 hover:scale-105 cursor-pointer' onClick={() => {
           gotoComp({
             display: 'genre',
             data: cur
@@ -102,9 +102,9 @@ const Product = ({ id }) => {
           <div className={`w-screen sm:w-80 h-96 bg-cover`} style={{ backgroundImage: `url(${Data.movieThumbnail})` }}></div>
         </div>
       </div>
-      <section className='bg-black p-5'>
+      <section className='dark:bg-black p-5'>
         <div className='flex md:justify-center space-y-10 md:space-y-0 md:space-x-10 flex-col md:flex-row'>
-          <div className=' md:w-[40rem] space-y-3 text-white'>
+          <div className=' md:w-[40rem] space-y-3 dark:text-white'>
             <h1 className='text-3xl font-bold'>{(Data.movieName) ? Data.movieName.charAt(0).toUpperCase() + Data.movieName.slice(1) : "Movie Name"}</h1>
             <div className='font-semibold'>{
               ((Data.movieTags) ? ((Data.movieTags.indexOf("english") != -1 || Data.movieTags.indexOf("hindi") != -1) ? "Dub" : "Sub") : "")
@@ -117,11 +117,11 @@ const Product = ({ id }) => {
               <div className='bg-orange-500 px-2 py-1'>Fantasy</div> */}
             </div>
             <div>
-              <div className='text-white flex justify-between border-b border-white py-2'>
+              <div className='dark:text-white flex justify-between border-b border-black dark:border-white py-2'>
                 <span>Release Year</span>
                 <span>{Data.releaseYear}</span>
               </div>
-              <div className='text-white flex justify-between border-b border-white py-2'>
+              <div className='dark:text-white flex justify-between border-b border-black dark:border-white py-2'>
                 <span>Directors</span>
                 <span>{(Data.movieDirectors) ? Data.movieDirectors.join(", ") : "None"}</span>
               </div>
@@ -134,7 +134,7 @@ const Product = ({ id }) => {
                   {
                     (Data && Data.movieDownloads && Data.movieDownloads.hindi.length != 0)? Data.movieDownloads.hindi.map((cur) => {
                       //console.log('ss => ',cur);
-                      return <a className='bg-blue-700 text-center px-2 py-1 w-80 hover:bg-green-500' href={cur.link}>{cur.quality}</a>
+                      return <a className='bg-blue-700 text-center px-2 py-1 w-80 text-white hover:bg-green-500' href={cur.link}>{cur.quality}</a>
                     }):<></>
                   }
                   {/* <div className='bg-blue-500 px-2 py-1'><a href="#">720p</a></div>
@@ -146,7 +146,7 @@ const Product = ({ id }) => {
                 <div className='flex flex-col space-y-3 items-center'>
                   {
                     (Data && Data.movieDownloads && Data.movieDownloads.english.length != 0)? Data.movieDownloads.english.map((cur) => {
-                      return <a className='bg-blue-700 text-center px-2 py-1 w-80 hover:bg-green-500' href={cur.link}>{cur.quality}</a>
+                      return <a className='bg-blue-700 text-center px-2 py-1 w-80 text-white hover:bg-green-500' href={cur.link}>{cur.quality}</a>
                     }):<></>
                   }
                   {/* <div className='bg-blue-500 px-2 py-1'><a href="#">720p</a></div>
@@ -158,7 +158,7 @@ const Product = ({ id }) => {
                 <div className='flex flex-col space-y-3 items-center'>
                   {
                     (Data && Data.movieDownloads && Data.movieDownloads.subbed.length != 0)? Data.movieDownloads.subbed.map((cur) => {
-                      return <a className='bg-blue-700 text-center px-2 py-1 w-80 hover:bg-green-500' href={cur.link}>{cur.quality}</a>
+                      return <a className='bg-blue-700 text-center px-2 py-1 w-80 text-white hover:bg-green-500' href={cur.link}>{cur.quality}</a>
                     }):<></>
                   }
                   {/* <div className='bg-blue-500 px-2 py-1'><a href="#">720p</a></div>
