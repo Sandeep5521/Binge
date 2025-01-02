@@ -375,7 +375,8 @@ const startServer = async () =>{
   }));
   
   app.get('/',(req,res)=>{
-    res.sendFile(`${__dirname}/templates/main.html`)
+    res.redirect('https://binge-liard.vercel.app');
+    //res.sendFile(`${__dirname}/templates/main.html`)
     //res.redirect('/graphql');
     // res.cookie(,process.env.COOKIE_VALUE,)
   })
