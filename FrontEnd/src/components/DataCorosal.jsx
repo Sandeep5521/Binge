@@ -9,6 +9,7 @@ import { useState } from 'react'
 import { Navigation, Pagination, Scrollbar, A11y, Keyboard, Autoplay } from 'swiper/modules';
 import Label from './Card';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import LoadingCard from './LoadingCard';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -17,6 +18,7 @@ import { useEffect } from 'react';
 
 const DataCorosal = () => {
     const [Corosal, setCorosal] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     const getCorosal = async () => {
         let tmp = await fetch('https://bingeql.onrender.com/graphQL', {
@@ -41,8 +43,9 @@ const DataCorosal = () => {
             })
         });
         tmp = await tmp.json();
-        console.log('ss4 =>',tmp);
+        console.log('ss4 =>', tmp);
         setCorosal(tmp.data.Movies);
+        setLoading(false);
     }
 
     useEffect(() => {
@@ -78,11 +81,49 @@ const DataCorosal = () => {
                     <img src="https://wallpapercave.com/wp/wp8969483.jpg" alt="" className='object-fit' />
                 </div>
             </SwiperSlide> */}
-            {(Corosal && Corosal.length != 0) ? Corosal.map((cur) => <SwiperSlide className='' key={cur._id}>
+
+            {/* {(Corosal && Corosal.length != 0) ? Corosal.map((cur) => <SwiperSlide className='' key={cur._id}>
                 <div className='flex justify-center'>
                     <Label key={cur._id} id={cur._id} title={cur.movieName} thumb={cur.movieThumbnail} tags={cur.movieTags} />
                 </div>
-            </SwiperSlide>) : <></>}
+            </SwiperSlide>) : <></>} */}
+
+            {(!loading) ? Corosal.map((cur) => <SwiperSlide className='' key={cur._id}>
+                <div className='flex justify-center'>
+                    <Label key={cur._id} id={cur._id} title={cur.movieName} thumb={cur.movieThumbnail} tags={cur.movieTags} />
+                </div>
+            </SwiperSlide>) : <>
+                <SwiperSlide>
+                    <div className='flex justify-center'>
+                        <LoadingCard />
+                    </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <div className='flex justify-center'>
+                        <LoadingCard />
+                    </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <div className='flex justify-center'>
+                        <LoadingCard />
+                    </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <div className='flex justify-center'>
+                        <LoadingCard />
+                    </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <div className='flex justify-center'>
+                        <LoadingCard />
+                    </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <div className='flex justify-center'>
+                        <LoadingCard />
+                    </div>
+                </SwiperSlide>
+            </>}
         </Swiper>
     );
 };
