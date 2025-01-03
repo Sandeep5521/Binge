@@ -16,19 +16,19 @@ import 'swiper/css';
 import 'swiper/css/bundle'
 import { useEffect } from 'react';
 
-const DataCorosal = () => {
+const DataCorosal = ({tag}) => {
     const [Corosal, setCorosal] = useState([]);
     const [loading, setLoading] = useState(true);
-
-    const getCorosal = async ({tag}) => {
+    console.log('ss5 =>', tag);
+    const getCorosal = async () => {
         let tmp = await fetch('https://bingeql.onrender.com/graphQL', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                query: `query ExampleQuery($page: Int, $limit: Int) {
-                    Movies(page: $page, limit: $limit) {
+                query: `query ExampleQuery($page: Int, $limit: Int,$tag: String) {
+                    Movies(page: $page, limit: $limit, tag: $tag) {
                         _id,
                         movieName,
                         movieThumbnail,
@@ -38,7 +38,8 @@ const DataCorosal = () => {
                   }`,
                 variables: {
                     page: 1,
-                    limit: 6
+                    limit: 6,
+                    tag: (tag)? tag:null
                 }
             })
         });

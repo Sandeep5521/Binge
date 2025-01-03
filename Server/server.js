@@ -264,8 +264,11 @@ const startServer = async () =>{
           if(page && limit && tag){
             const Count = await Movies.find({movieTags:tag}).count();
             const Skip = (page - 1) * limit;
+            console.log(Count,page,limit,tag);
             if(Skip < Count){
-              return await Movies.find().skip(Skip).limit(limit).sort({ date: -1 });
+              let tmp = await Movies.find({movieTags:tag}).skip(Skip).limit(limit).sort({ date: -1 });
+              //console.log(tmp)
+              return tmp;
             }
           }
           if(page && limit){
