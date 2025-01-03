@@ -20,7 +20,7 @@ const DataCorosal = () => {
     const [Corosal, setCorosal] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    const getCorosal = async () => {
+    const getCorosal = async ({tag}) => {
         let tmp = await fetch('https://bingeql.onrender.com/graphQL', {
             method: 'POST',
             headers: {

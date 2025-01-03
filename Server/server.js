@@ -261,6 +261,13 @@ const startServer = async () =>{
       Query:{
         Movies:async (parent,{year,tag,page,limit,name})=>{
           //console.log(year,typeof year)
+          if(page && limit && tag){
+            const Count = await Movies.find({movieTags:tag}).count();
+            const Skip = (page - 1) * limit;
+            if(Skip < Count){
+              return await Movies.find().skip(Skip).limit(limit).sort({ date: -1 });
+            }
+          }
           if(page && limit){
             const Count = await Movies.find().count();
             const Skip = (page - 1) * limit;
