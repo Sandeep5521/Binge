@@ -19,7 +19,7 @@ import { useEffect } from 'react';
 const DataCorosal = ({tag}) => {
     const [Corosal, setCorosal] = useState([]);
     const [loading, setLoading] = useState(true);
-    console.log('ss5 =>', tag);
+    //console.log('ss5 =>', tag);
     const getCorosal = async () => {
         let tmp = await fetch('https://bingeql.onrender.com/graphQL', {
             method: 'POST',
