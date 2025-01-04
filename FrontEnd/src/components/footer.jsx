@@ -4,7 +4,7 @@ export function SimpleFooter() {
   return (
     <footer className="flex px-10 dark:from-black dark:to-[#23252b] dark:bg-gradient-to-b flex-row flex-wrap items-center justify-center gap-y-6 gap-x-12 border-t border-orange-gray-50 py-6  dark:border-black text-center md:justify-between border-t-white">
       <Typography color="orange-gray" className="font-normal dark:text-white">
-        &copy; 2024 BingeQL
+        &copy; {new Date().getFullYear()} Binge
       </Typography>
       <ul className="flex flex-wrap items-center gap-y-2 gap-x-8">
         <li>
