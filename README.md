@@ -1,10 +1,6 @@
-Explore the world of movies and TV shows with Binge, a React-GraphQL app designed to provide seamless access to an extensive collection of entertainment data. Whether you're building a movie recommendation app, creating a TV show tracking platform, or enhancing your media-related project, Binge is your gateway to a treasure trove of information.
-
-The frontend of Binge is deployed on Vercel, ensuring fast and reliable access to the user interface, while the backend is hosted on Render, providing a robust and scalable Binge API powered by GraphQL. Access the full project on GitHub to explore its features and deployment setup.
-
 # BingeQL Documentation
 
-BingeQL is a GraphQL API built using Node.js, Express, and MongoDB. It provides a robust backend for managing movies, shows, tags, and users. This document provides an overview of the API schema, queries, mutations, and sample usage.
+BingeQL is a GraphQL API built using Node.js, Express, and MongoDB. It provides a robust backend for managing movies, shows, tags, and users. This API is used by **Binge**, a React web app deployed on Vercel. This document provides an overview of the API schema, queries, mutations, and sample usage.
 
 ## Table of Contents
 - [Schema Overview](#schema-overview)
