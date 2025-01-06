@@ -1,6 +1,6 @@
 # BingeQL Documentation
 
-BingeQL is a GraphQL API built using Node.js, Express, and MongoDB. It provides a robust backend for managing movies, shows, tags, and users. This API is used by **Binge**, a React web app deployed on Vercel. This document provides an overview of the API schema, queries, mutations, and sample usage.
+BingeQL is a GraphQL API built using Node.js, Express, and MongoDB. It provides a robust backend for managing movies, shows, tags, and users. This API is used by **Binge**, a React web app deployed on Vercel. The API endpoint is hosted at **https://bingeql.onrender.com/graphql**. This document provides an overview of the API schema, queries, mutations, and sample usage.
 
 ## Table of Contents
 - [Schema Overview](#schema-overview)
