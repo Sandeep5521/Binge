@@ -215,7 +215,7 @@ const Product = ({ id }) => {
               </div>
             </div>
           </div>
-          <div className='bg-gray-500 md:w-80'>
+          <div className=' md:w-80 flex justify-center'>
             <div>
               {/* <img src="https://catimages.org/images/2023/04/17/kat2023-04-17-07h38m56s512.jpg" alt="" /> */}
               <ShowShots />
