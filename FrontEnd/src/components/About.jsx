@@ -1,0 +1,42 @@
+import React from "react";
+
+const About = () => {
+  return (
+    <section className="bg-gray-100 py-12">
+      <div className="container mx-auto px-6 md:px-12 lg:px-20">
+        <div className="bg-white rounded-lg shadow-lg p-8">
+          <h2 className="text-3xl font-bold text-gray-800 mb-4 text-center">
+            About Binge
+          </h2>
+          <p className="text-gray-600 text-lg mb-6 text-center">
+            Welcome to <span className="font-bold">Binge</span>, your ultimate entertainment companion. Built with the 
+            power of <span className="font-semibold">React</span>, it offers a seamless experience to track, explore, 
+            and discover your favorite content. The backend is powered by 
+            <span className="font-semibold text-indigo-600"> BingeQL GraphQL API</span>, ensuring lightning-fast and 
+            dynamic data interactions.
+          </p>
+          <div className="flex justify-center items-center space-x-4">
+            <a
+              href="https://github.com/your-github-username/binge"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition duration-300"
+            >
+              GitHub Repository
+            </a>
+            <a
+              href="https://bingeql-documentation-url.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded-lg shadow-md transition duration-300"
+            >
+              API Documentation
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default About;

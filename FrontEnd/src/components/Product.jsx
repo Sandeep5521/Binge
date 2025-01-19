@@ -23,6 +23,7 @@ const Product = ({ id }) => {
                     releaseYear,
                     movieDirectors,
                     movieShots,
+                    movieReview,
                     movieDownloads {
                       hindi {
                         link,
@@ -46,6 +47,7 @@ const Product = ({ id }) => {
     });
     tmp = await tmp.json();
     console.log(id);
+    console.log("review => ",tmp.data)
     setData(tmp.data.Movie);
     setLoading(false);
   }
@@ -222,6 +224,7 @@ const Product = ({ id }) => {
             </div>
           </div>
         </div>
+        {/* <div className='h-fit dark:text-white font-medium'>{(Data && Data.movieReview)? Data.movieReview:"" // for movieReview}</div> */} 
       </section>
     </>
   )

@@ -216,6 +216,11 @@ function NavList({ display, open }) {
         variant="small"
         color="blue-gray"
         className="p-1 font-medium"
+        onClick={()=>{
+          gotoComp({
+            display:'about'
+          });
+        }}
       >
         <a href="#" className="flex items-center hover:text-white transition-colors">
           About
