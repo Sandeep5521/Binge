@@ -63,7 +63,7 @@ const DataCorosal = ({tag}) => {
                     slidesPerView: 2
                 },
                 768: {
-                    slidesPerView: 4
+                    slidesPerView: 3
                 },
                 1024: {
                     slidesPerView: 4
@@ -75,7 +75,7 @@ const DataCorosal = ({tag}) => {
             onSwiper={(swiper) => console.log(swiper)}
             onSlideChange={() => console.log('slide change')}
             effect='fade'
-            className='dark:bg-black dark:md:bg-black bg-gray-200 md:bg-gray-300'
+            className='dark:bg-black dark:md:bg-black bg-gray-200 md:bg-gray-300 h-[40rem]'
         >
             {/* <SwiperSlide>
                 <div className='flex justify-center'>
