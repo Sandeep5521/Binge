@@ -15,7 +15,7 @@ const About = () => {
             <span className="font-semibold text-indigo-600"> BingeQL GraphQL API</span>, ensuring lightning-fast and 
             dynamic data interactions.
           </p>
-          <div className="flex justify-center items-center space-x-4">
+          <div className="flex justify-center items-center space-x-4 mb-6">
             <a
               href="https://github.com/Sandeep5521/Binge"
               target="_blank"
@@ -32,6 +32,29 @@ const About = () => {
             >
               API Documentation
             </a>
+          </div>
+          <div className="text-center">
+            <p className="text-gray-600 dark:text-gray-300 mb-4">
+              If you like this project, don't forget to give it a ⭐ on GitHub and follow me for more projects!
+            </p>
+            <div className="flex justify-center items-center space-x-4">
+              <a
+                href="https://github.com/Sandeep5521/Binge"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition duration-300"
+              >
+                ⭐ Star on GitHub
+              </a>
+              <a
+                href="https://github.com/Sandeep5521"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition duration-300"
+              >
+                👤 Follow Me on GitHub
+              </a>
+            </div>
           </div>
         </div>
       </div>
