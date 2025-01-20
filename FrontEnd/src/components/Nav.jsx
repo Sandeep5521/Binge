@@ -217,6 +217,8 @@ function NavList({ display, open }) {
         color="blue-gray"
         className="p-1 font-medium"
         onClick={()=>{
+          if(open) open(false);
+          console.log(typeof open)
           gotoComp({
             display:'about'
           });
