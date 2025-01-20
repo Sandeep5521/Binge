@@ -2,13 +2,13 @@ import React from "react";
 
 const About = () => {
   return (
-    <section className="bg-gray-100 py-12">
+    <section className="bg-gray-100 py-12 h-screen dark:bg-black">
       <div className="container mx-auto px-6 md:px-12 lg:px-20">
-        <div className="bg-white rounded-lg shadow-lg p-8">
-          <h2 className="text-3xl font-bold text-gray-800 mb-4 text-center">
+        <div className="bg-white rounded-lg shadow-lg p-8 dark:bg-gray-800">
+          <h2 className="text-3xl font-bold text-gray-800 mb-4 text-center dark:text-white">
             About Binge
           </h2>
-          <p className="text-gray-600 text-lg mb-6 text-center">
+          <p className="text-gray-600 text-lg mb-6 text-center dark:text-gray-300">
             Welcome to <span className="font-bold">Binge</span>, your ultimate entertainment companion. Built with the 
             power of <span className="font-semibold">React</span>, it offers a seamless experience to track, explore, 
             and discover your favorite content. The backend is powered by 
