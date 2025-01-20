@@ -17,7 +17,7 @@ const About = () => {
           </p>
           <div className="flex justify-center items-center space-x-4">
             <a
-              href="https://github.com/your-github-username/binge"
+              href="https://github.com/Sandeep5521/Binge"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition duration-300"
@@ -25,7 +25,7 @@ const About = () => {
               GitHub Repository
             </a>
             <a
-              href="https://bingeql-documentation-url.com"
+              href="#"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded-lg shadow-md transition duration-300"
