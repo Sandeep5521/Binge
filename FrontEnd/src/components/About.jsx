@@ -25,10 +25,9 @@ const About = () => {
               GitHub Repository
             </a>
             <a
-              href="#"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded-lg shadow-md transition duration-300"
+              className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded-lg shadow-md transition duration-300 cursor-pointer"
             >
               API Documentation
             </a>
