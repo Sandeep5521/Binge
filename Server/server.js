@@ -264,12 +264,14 @@ const startServer = async () => {
       Query: {
         Movies: async (parent, { year, tag, page, limit, name }) => {
           //console.log(year,typeof year)
+          let Tag = tag.split(',');
+
           if (page && limit && tag) {
-            const Count = await Movies.find({ movieTags: tag }).count();
+            const Count = await Movies.find({ movieTags: { $all: Tag } }).count();
             const Skip = (page - 1) * limit;
             console.log(Count, page, limit, tag);
             if (Skip < Count) {
-              let tmp = await Movies.find({ movieTags: tag }).skip(Skip).limit(limit).sort({ date: -1 });
+              let tmp = await Movies.find({ movieTags: { $all: Tag } }).skip(Skip).limit(limit).sort({ date: -1 });
               //console.log(tmp)
               return tmp;
             }
@@ -282,7 +284,7 @@ const startServer = async () => {
             }
           }
           if (year) return await Movies.find({ releaseYear: year })
-          if (tag) return await Movies.find({ movieTags: tag });
+          if (tag) return await Movies.find({ movieTags: { $all: Tag } });
           if (name) {
             const tmp = await Movies.find({ movieName: { $regex: name, $options: 'i' } })
 
