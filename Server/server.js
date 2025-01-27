@@ -264,8 +264,8 @@ const startServer = async () => {
       Query: {
         Movies: async (parent, { year, tag, page, limit, name }) => {
           //console.log(year,typeof year)
-          let Tag = tag.split(',');
-
+          let Tag = (tag != null)? tag.split(','):null;
+          console.log(Tag, tag === null);
           if (page && limit && tag) {
             const Count = await Movies.find({ movieTags: { $all: Tag } }).count();
             const Skip = (page - 1) * limit;
