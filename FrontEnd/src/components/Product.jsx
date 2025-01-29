@@ -115,7 +115,7 @@ const Product = ({ id }) => {
             <div className={`w-screen sm:w-80 h-96 bg-cover`}></div>
           </div>
         </div>
-        <section className='dark:bg-black p-5'>
+        <section className='dark:bg-black p-5 bg-gray-200 md:bg-gray-300'>
           <div className='flex md:justify-center space-y-10 md:space-y-0 md:space-x-10 flex-col md:flex-row'>
             <div className=' md:w-[40rem] space-y-3 dark:text-white'>
               <h1 className='text-3xl font-bold h-10 bg-gray-500 animate-pulse'></h1>
@@ -153,7 +153,7 @@ const Product = ({ id }) => {
           <div className={`w-screen sm:w-80 h-96 bg-cover`} style={{ backgroundImage: `url(${Data.movieThumbnail})` }}></div>
         </div>
       </div>
-      <section className='dark:bg-black p-5'>
+      <section className='dark:bg-black p-5 bg-gray-200 md:bg-gray-300 md:dark:bg-black'>
         <div className='flex md:justify-center space-y-10 md:space-y-0 md:space-x-10 flex-col md:flex-row'>
           <div className=' md:w-[40rem] space-y-3 dark:text-white'>
             <h1 className='text-3xl font-bold'>{(Data.movieName) ? Data.movieName.charAt(0).toUpperCase() + Data.movieName.slice(1) : "Movie Name"}</h1>
