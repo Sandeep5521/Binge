@@ -16,7 +16,7 @@ import 'swiper/css';
 import 'swiper/css/bundle'
 import { useEffect } from 'react';
 
-const DataCorosal = ({tag}) => {
+const DataCorosal = ({tag,product}) => {
     const [Corosal, setCorosal] = useState([]);
     const [loading, setLoading] = useState(true);
     //console.log('ss5 =>', tag);
@@ -45,7 +45,8 @@ const DataCorosal = ({tag}) => {
         });
         tmp = await tmp.json();
         console.log('ss4 =>', tmp);
-        setCorosal(tmp.data.Movies);
+        let data = (product)? tmp.data.Movies.filter((cur) => cur._id != product):tmp.data.Movies;
+        setCorosal(data);
         setLoading(false);
     }
 
