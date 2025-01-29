@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { parent } from '../App';
+import DataCorosal from './DataCorosal';
 
 const Product = ({ id }) => {
   const gotoComp = useContext(parent);
@@ -47,7 +48,7 @@ const Product = ({ id }) => {
     });
     tmp = await tmp.json();
     console.log(id);
-    console.log("review => ",tmp.data)
+    console.log("review => ", tmp.data)
     setData(tmp.data.Movie);
     setLoading(false);
   }
@@ -58,7 +59,7 @@ const Product = ({ id }) => {
   //console.log(id)
 
   const ShowTags = () => {
-    if(loading){
+    if (loading) {
       return <>
         <div className='text-white px-2 py-1 m-1 hover:scale-105 cursor-pointer h-7 w-14 bg-gray-500 animate-pulse'></div>
         <div className='text-white px-2 py-1 m-1 hover:scale-105 cursor-pointer h-7 w-14 bg-gray-500 animate-pulse'></div>
@@ -224,7 +225,12 @@ const Product = ({ id }) => {
             </div>
           </div>
         </div>
-        {/* <div className='h-fit dark:text-white font-medium'>{(Data && Data.movieReview)? Data.movieReview:"" // for movieReview}</div> */} 
+        {/* <div className='h-fit dark:text-white font-medium'>{(Data && Data.movieReview)? Data.movieReview:"" // for movieReview}</div> */}
+        <div className="text-left px-10 bg-gray-200 md:bg-gray-300 pt-10 pb-5 dark:bg-black dark:md:bg-black space-y-1 md:space-y-2">
+          <h1 className="text-2xl md:text-3xl font-semibold dark:text-white">More Like this</h1>
+          <h2 className='md:text-md dark:text-gray-400'>Start your binge before the new season begins!</h2>
+        </div>
+        <DataCorosal tag={(Data && Data.movieTags) ? Data.movieTags.join(',') : ''} />
       </section>
     </>
   )
