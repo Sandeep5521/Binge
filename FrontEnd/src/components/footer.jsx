@@ -1,6 +1,10 @@
+import React, { useContext } from "react";
 import { Typography } from "@material-tailwind/react";
+import { parent } from "../App";
  
 export function SimpleFooter() {
+  const gotoComp = useContext(parent)
+
   return (
     <footer className="flex px-10 dark:from-black dark:to-[#23252b] dark:bg-gradient-to-b flex-row flex-wrap items-center justify-center gap-y-6 gap-x-12 border-t border-orange-gray-50 py-6  dark:border-black text-center md:justify-between border-t-white">
       <Typography color="orange-gray" className="font-normal dark:text-white">
@@ -13,6 +17,11 @@ export function SimpleFooter() {
             href="#"
             color="orange-gray"
             className="font-normal transition-colors hover:text-orange-500 focus:text-orange-500 dark:text-white"
+            onClick={()=>{
+              gotoComp({
+                display:'about'
+              });
+            }}
           >
             About Us
           </Typography>
@@ -30,7 +39,7 @@ export function SimpleFooter() {
         <li>
           <Typography
             as="a"
-            href="#"
+            href="https://github.com/Sandeep5521/Binge"
             color="orange-gray"
             className="font-normal transition-colors hover:text-orange-500 focus:text-orange-500 dark:text-white"
           >
