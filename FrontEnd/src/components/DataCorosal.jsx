@@ -16,7 +16,7 @@ import 'swiper/css';
 import 'swiper/css/bundle'
 import { useEffect } from 'react';
 
-const DataCorosal = ({tag,product}) => {
+const DataCorosal = ({ tag, product,mainHeading,subHeading }) => {
     const [Corosal, setCorosal] = useState([]);
     const [loading, setLoading] = useState(true);
     //console.log('ss5 =>', tag);
@@ -39,13 +39,13 @@ const DataCorosal = ({tag,product}) => {
                 variables: {
                     page: 1,
                     limit: 6,
-                    tag: (tag)? tag:null
+                    tag: (tag) ? tag : null
                 }
             })
         });
         tmp = await tmp.json();
         console.log('ss4 =>', tmp);
-        let data = (product)? tmp.data.Movies.filter((cur) => cur._id != product):tmp.data.Movies;
+        let data = (product) ? tmp.data.Movies.filter((cur) => cur._id != product) : tmp.data.Movies;
         setCorosal(data);
         setLoading(false);
     }
@@ -55,78 +55,84 @@ const DataCorosal = ({tag,product}) => {
     }, [])
 
     return (
-        <Swiper
-            modules={[Navigation, Pagination, Scrollbar, A11y, Keyboard, Autoplay]}
-            spaceBetween={0}
-            slidesPerView={1}
-            breakpoints={{
-                640: {
-                    slidesPerView: 2
-                },
-                768: {
-                    slidesPerView: 3
-                },
-                1024: {
-                    slidesPerView: 4
-                },
-            }}
-            navigation
-            pagination={{ clickable: true }}
-            keyboard={{ enabled: true, onlyInViewport: false }}
-            onSwiper={(swiper) => console.log(swiper)}
-            onSlideChange={() => console.log('slide change')}
-            effect='fade'
-            className='dark:bg-black dark:md:bg-black bg-gray-200 md:bg-gray-300 h-[40rem]'
-        >
-            {/* <SwiperSlide>
+        <>
+            <div className={`text-left px-10 bg-gray-200 md:bg-gray-300 pt-10 pb-5 dark:bg-black dark:md:bg-black space-y-1 md:space-y-2 ${(Corosal.length === 0) ? 'hidden' : 'block'} `}>
+                <h1 className="text-2xl md:text-3xl font-semibold dark:text-white">{(mainHeading)? mainHeading:''}</h1>
+                <h2 className='md:text-md dark:text-gray-400'>{(subHeading)? subHeading:'Start your binge before the new season begins!'}</h2>
+            </div>
+            <Swiper
+                modules={[Navigation, Pagination, Scrollbar, A11y, Keyboard, Autoplay]}
+                spaceBetween={0}
+                slidesPerView={1}
+                breakpoints={{
+                    640: {
+                        slidesPerView: 2
+                    },
+                    768: {
+                        slidesPerView: 3
+                    },
+                    1024: {
+                        slidesPerView: 4
+                    },
+                }}
+                navigation
+                pagination={{ clickable: true }}
+                keyboard={{ enabled: true, onlyInViewport: false }}
+                onSwiper={(swiper) => console.log(swiper)}
+                onSlideChange={() => console.log('slide change')}
+                effect='fade'
+                className={`dark:bg-black dark:md:bg-black bg-gray-200 md:bg-gray-300 ${(Corosal.length === 0) ? 'h-0' : 'h-[40rem]'} `}
+            >
+                {/* <SwiperSlide>
                 <div className='flex justify-center'>
                     <img src="https://wallpapercave.com/wp/wp8969483.jpg" alt="" className='object-fit' />
                 </div>
             </SwiperSlide> */}
 
-            {/* {(Corosal && Corosal.length != 0) ? Corosal.map((cur) => <SwiperSlide className='' key={cur._id}>
+                {/* {(Corosal && Corosal.length != 0) ? Corosal.map((cur) => <SwiperSlide className='' key={cur._id}>
                 <div className='flex justify-center'>
                     <Label key={cur._id} id={cur._id} title={cur.movieName} thumb={cur.movieThumbnail} tags={cur.movieTags} />
                 </div>
             </SwiperSlide>) : <></>} */}
 
-            {(!loading) ? Corosal.map((cur) => <SwiperSlide className='' key={cur._id}>
-                <div className='flex justify-center'>
-                    <Label key={cur._id} id={cur._id} title={cur.movieName} thumb={cur.movieThumbnail} tags={cur.movieTags} />
-                </div>
-            </SwiperSlide>) : <>
-                <SwiperSlide>
+                {(!loading) ? Corosal.map((cur) => <SwiperSlide className='' key={cur._id}>
                     <div className='flex justify-center'>
-                        <LoadingCard />
+                        <Label key={cur._id} id={cur._id} title={cur.movieName} thumb={cur.movieThumbnail} tags={cur.movieTags} />
                     </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <div className='flex justify-center'>
-                        <LoadingCard />
-                    </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <div className='flex justify-center'>
-                        <LoadingCard />
-                    </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <div className='flex justify-center'>
-                        <LoadingCard />
-                    </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <div className='flex justify-center'>
-                        <LoadingCard />
-                    </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <div className='flex justify-center'>
-                        <LoadingCard />
-                    </div>
-                </SwiperSlide>
-            </>}
-        </Swiper>
+                </SwiperSlide>) : <>
+                    <SwiperSlide>
+                        <div className='flex justify-center'>
+                            <LoadingCard />
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div className='flex justify-center'>
+                            <LoadingCard />
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div className='flex justify-center'>
+                            <LoadingCard />
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div className='flex justify-center'>
+                            <LoadingCard />
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div className='flex justify-center'>
+                            <LoadingCard />
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div className='flex justify-center'>
+                            <LoadingCard />
+                        </div>
+                    </SwiperSlide>
+                </>}
+            </Swiper>
+        </>
     );
 };
 
