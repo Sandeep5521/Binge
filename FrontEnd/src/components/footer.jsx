@@ -6,7 +6,7 @@ export function SimpleFooter() {
   const gotoComp = useContext(parent)
 
   return (
-    <footer className="flex px-10 dark:from-black dark:to-[#23252b] dark:bg-gradient-to-b flex-row flex-wrap items-center justify-center gap-y-6 gap-x-12 border-t border-orange-gray-50 py-6  dark:border-black text-center md:justify-between border-t-white">
+    <footer className="flex px-10 dark:from-black dark:to-[#23252b] dark:bg-gradient-to-b flex-row flex-wrap items-center justify-center gap-y-6 gap-x-12 py-6 dark:border-black text-center md:justify-between bg-gray-200 md:bg-gray-300 md:dark:from-black md:dark:to-[#23252b] md:dark:bg-gradient-to-b ">
       <Typography color="orange-gray" className="font-normal dark:text-white">
         &copy; {new Date().getFullYear()} Binge
       </Typography>
