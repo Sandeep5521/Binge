@@ -19,7 +19,7 @@ const Label = ({ title, thumb, tags, id }) => {
     }}>{cur.charAt(0).toUpperCase() + cur.slice(1)}</div>):<></>
 
     return (
-        <Card className="mt-6 w-[90%] bg-white  dark:border-black dark:border-4 p-4 hover:scale-105 cursor-pointer dark:bg-opacity-20">
+        <Card className="mt-6 w-[90%] bg-white  dark:border-black dark:border-4 p-4 hover:brightness-75 cursor-pointer dark:bg-opacity-20">
             <CardHeader color="blue-gray" className="relative h-fit -my-10 flex justify-center" onClick={() => {
                 gotoComp({
                     display: 'page',
