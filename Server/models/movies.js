@@ -25,6 +25,7 @@ const movieSchema = mongoose.Schema({
         type: Number,
         required: true
     },
+    imdb:String,
     movieDirectors: Array,
     movieTags: {
         type: Array,

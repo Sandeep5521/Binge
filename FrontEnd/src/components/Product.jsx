@@ -22,6 +22,7 @@ const Product = ({ id }) => {
                     movieThumbnail,
                     movieTags,
                     releaseYear,
+                    imdb,
                     movieDirectors,
                     movieShots,
                     movieReview,
@@ -157,9 +158,12 @@ const Product = ({ id }) => {
         <div className='flex md:justify-center space-y-10 md:space-y-0 md:space-x-10 flex-col md:flex-row'>
           <div className=' md:w-[40rem] space-y-3 dark:text-white'>
             <h1 className='text-3xl font-bold'>{(Data.movieName) ? Data.movieName.charAt(0).toUpperCase() + Data.movieName.slice(1) : "Movie Name"}</h1>
-            <div className='font-semibold'>{
+            <div className='font-semibold flex space-x-1 items-center'>
+            {/* {
               ((Data.movieTags) ? ((Data.movieTags.indexOf("english") != -1 || Data.movieTags.indexOf("hindi") != -1) ? "Dub" : "Sub") : "")
-            }
+            } */}
+              <img src="https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/171_Imdb_logo_logos-512.png" className='h-6 w-7' />
+              <h1>{(Data.imdb)? Data.imdb+'/10':'NA'}</h1>
             </div>
             <p>{Data.movieDescription}</p>
             <div className='flex flex-wrap'>
