@@ -8,6 +8,7 @@ import { SimpleFooter } from './components/footer';
 import Search from './components/Search';
 import Product from './components/Product';
 import About from './components/About';
+import Docs from './components/Docs';
 
 const parent = createContext();
 
@@ -33,6 +34,7 @@ export default function App() {
     if(Comp.display == 'search') return <Search/>
     if(Comp.display == 'page') return <Product id={Comp.data}/>
     if(Comp.display == 'about') return <About/>
+    if(Comp.display == 'docs') return <Docs/>
     return <Home/>
   }
 

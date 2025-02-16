@@ -233,6 +233,13 @@ function NavList({ display, open }) {
         variant="small"
         color="blue-gray"
         className="p-1 font-medium"
+        onClick={()=>{
+          if(open) open(false);
+          console.log(typeof open)
+          gotoComp({
+            display:'docs'
+          });
+        }}
       >
         <a href="#" className="flex items-center hover:text-white transition-colors">
           Docs
