@@ -1,6 +1,9 @@
 import React from "react";
+import { useContext } from "react";
+import { parent } from "../App";
 
 const About = () => {
+  const gotoComp = useContext(parent);
   return (
     <section className="bg-gray-100 h-fit dark:bg-black">
       <div className="container flex justify-center items-center h-screen mx-auto px-6 md:px-12 lg:px-20">
@@ -28,6 +31,12 @@ const About = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded-lg shadow-md transition duration-300 cursor-pointer"
+              onClick={()=>{
+                gotoComp({
+                  display: 'docs',
+                  data: ''
+                })
+              }}
             >
               API Documentation
             </a>
