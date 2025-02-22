@@ -12,7 +12,7 @@ const Data = ({list}) => {
         </div>
       }
       else{
-        return <div className="h-fit dark:bg-black grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-0  place-items-center py-10 md:gap-y-10">
+        return <div className="h-fit dark:bg-black grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 md:gap-0  place-items-center py-10 md:gap-y-10">
         {renderItem}
       </div>
       }
