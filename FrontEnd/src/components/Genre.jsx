@@ -52,7 +52,7 @@ export default function Genre({ data }) {
 
   if (Loading) {
     return (
-      <section className="bg-gray-300 md:bg-gray-200">
+      <section>
         <div className="h-fit dark:bg-black grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-0  place-items-center py-10 md:gap-y-10">
           <LoadingCard />
           <LoadingCard />
@@ -63,7 +63,7 @@ export default function Genre({ data }) {
   }
 
   return (
-    <section className="bg-gray-300 md:bg-gray-200">
+    <section>
       <h1 className="text-center dark:text-white dark:bg-black font-semibold font-mono text-xl pt-10 px-10">{Text}</h1>
       <Data list={genre} />
     </section>

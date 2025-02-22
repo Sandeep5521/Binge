@@ -56,7 +56,7 @@ const DataCorosal = ({ tag, product,mainHeading,subHeading }) => {
 
     return (
         <>
-            <div className={`text-left px-10 bg-gray-200 md:bg-gray-300 pt-10 pb-5 dark:bg-black dark:md:bg-black space-y-1 md:space-y-2 ${(Corosal.length === 0) ? 'hidden' : 'block'} `}>
+            <div className={`text-left px-10 pt-10 pb-5 dark:bg-black dark:md:bg-black space-y-1 md:space-y-2 ${(Corosal.length === 0) ? 'hidden' : 'block'} `}>
                 <h1 className="text-2xl md:text-3xl font-semibold dark:text-white">{(mainHeading)? mainHeading:''}</h1>
                 <h2 className='md:text-md dark:text-gray-400'>{(subHeading)? subHeading:'Start your binge before the new season begins!'}</h2>
             </div>
@@ -81,7 +81,7 @@ const DataCorosal = ({ tag, product,mainHeading,subHeading }) => {
                 onSwiper={(swiper) => console.log(swiper)}
                 onSlideChange={() => console.log('slide change')}
                 effect='fade'
-                className={`dark:bg-black dark:md:bg-black bg-gray-200 md:bg-gray-300 ${(Corosal.length === 0) ? 'h-0' : 'h-[45rem]'} `}
+                className={`dark:bg-black dark:md:bg-black ${(Corosal.length === 0) ? 'h-0' : 'h-[45rem]'} `}
             >
                 {/* <SwiperSlide>
                 <div className='flex justify-center'>
