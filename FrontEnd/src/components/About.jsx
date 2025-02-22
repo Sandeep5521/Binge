@@ -4,6 +4,7 @@ import { parent } from "../App";
 
 const About = () => {
   const gotoComp = useContext(parent);
+  document.title = "About Binge";
   return (
     <section className="bg-gray-100 h-fit dark:bg-black">
       <div className="container flex justify-center items-center h-screen mx-auto px-6 md:px-12 lg:px-20">

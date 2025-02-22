@@ -6,7 +6,7 @@ const Product = ({ id }) => {
   const gotoComp = useContext(parent);
   const [Data, setData] = useState({});
   const [loading, setLoading] = useState(true);
-
+  
   const getProductData = async () => {
     let tmp = await fetch('https://bingeql.onrender.com/graphQL', {
       method: 'POST',
@@ -34,15 +34,15 @@ const Product = ({ id }) => {
                       english {
                         link,
                         quality
-                      },
+                        },
                       subbed {
                         link,
                         quality
-                      }
-                    }
-                  }
-                }`,
-        variables: {
+                        }
+                        }
+                        }
+                        }`,
+                        variables: {
           movieId: id
         }
       })
@@ -53,6 +53,7 @@ const Product = ({ id }) => {
     setData(tmp.data.Movie);
     setLoading(false);
   }
+  document.title = (Data && Data.movieName) ? Data.movieName.charAt(0).toUpperCase() + Data.movieName.slice(1) : "Loading...";
 
   useEffect(() => {
     getProductData();

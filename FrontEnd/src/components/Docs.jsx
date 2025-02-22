@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 const Docs = () => {
   const [darkMode, setDarkMode] = useState(false);
+  document.title = 'BingeQL Documentation';
 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);

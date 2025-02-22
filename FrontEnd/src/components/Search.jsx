@@ -7,6 +7,7 @@ const Search = () => {
   const [Text, setText] = useState("");
   const [SearchList, setSearchList] = useState([]);
   const [Loading, setLoading] = useState(true);
+  document.title = 'Search';
   const getData = async () => {
     let tmp = await fetch('https://bingeql.onrender.com/graphQL', {
       method: 'POST',

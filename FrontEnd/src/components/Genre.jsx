@@ -8,6 +8,7 @@ export default function Genre({ data }) {
   const [genre, setGenre] = useState([]);
   const [Text, setText] = useState("");
   const [Loading, setLoading] = useState(true);
+  document.title = data.charAt(0).toUpperCase() + data.slice(1);
   async function getGenre() {
     let tmp = await fetch('https://bingeql.onrender.com/graphQL', {
       method: 'POST',
@@ -49,7 +50,7 @@ export default function Genre({ data }) {
   useEffect(() => {
     getGenre();
   }, [])
-
+  
   if (Loading) {
     return (
       <section>

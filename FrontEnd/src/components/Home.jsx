@@ -10,6 +10,7 @@ import 'swiper/css';
 import 'swiper/css/bundle'
 
 const Home = () => {
+  document.title = 'Binge';
   return (
     <>
       <Banner/>
