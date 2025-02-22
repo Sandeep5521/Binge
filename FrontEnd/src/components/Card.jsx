@@ -28,7 +28,7 @@ const Label = ({ title, thumb, tags, id }) => {
             }}>
                 <img className={`rounded-xl shadow-xl hover:brightness-75`} src={thumb} alt="img-blur-shadow" layout="fill" />
             </CardHeader>
-            <CardBody className="text-left -ml-2">
+            <CardBody className="text-left">
                 <Typography variant="h5" color="blue-gray" className="mb-2 dark:text-white hover:brightness-75" onClick={() => {
                     gotoComp({
                         display: 'page',
