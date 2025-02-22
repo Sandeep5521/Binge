@@ -81,7 +81,7 @@ const DataCorosal = ({ tag, product,mainHeading,subHeading }) => {
                 onSwiper={(swiper) => console.log(swiper)}
                 onSlideChange={() => console.log('slide change')}
                 effect='fade'
-                className={`dark:bg-black dark:md:bg-black bg-gray-200 md:bg-gray-300 ${(Corosal.length === 0) ? 'h-0' : 'h-[40rem]'} `}
+                className={`dark:bg-black dark:md:bg-black bg-gray-200 md:bg-gray-300 ${(Corosal.length === 0) ? 'h-0' : 'h-[45rem]'} `}
             >
                 {/* <SwiperSlide>
                 <div className='flex justify-center'>
