@@ -398,6 +398,97 @@ const startServer = async () => {
     // res.cookie(,process.env.COOKIE_VALUE,)
   })
 
+  app.get('/entry', async (req, res) => {
+      try {
+        const url = req.query.url;
+        const response = await fetch(url);
+        const data = await response.text(); // Use `.json()` if the response is JSON
+        //res.setHeader('Content-Type', 'application/json');
+        const dom = new JSDOM(data);
+        let images = dom.window.document.getElementsByTagName('img');
+        images = Array.from(images);
+        let thumbnail = images.filter((img) => {
+          return img.className.includes('aligncenter') || img.className.includes('alignnone') || img.src.includes('catimages')
+        })
+        console.log(thumbnail[0].src," class got");
+        thumbnail = thumbnail[0].src; // thumbnail
+        images = images.filter((img) => {
+          //console.log(img.alt);
+          return img.src.includes('catimages')
+        })
+        images = images.map((img) => img.src);
+        console.log(images);
+        images = images.slice(1); // remove first image (For the ScreenShots)
+
+        let list = dom.window.document.getElementsByTagName('li');
+        list = Array.from(list);
+        console.log(list[84].textContent.length,list[84].textContent,'title got')
+        const FullTitle = list[84].textContent.slice(11).trim();
+        let title = FullTitle.split('(');
+        console.log(title);
+        //console.log(title[0],'('+title[1]);
+        let year = '('+title[1]; // year
+        title = title[0].slice(0,title[0].length-1); // title
+        console.log(title);
+        console.log(year);
+        const imdb = list[85].textContent.slice(13).trim().split('/')[0]; // imdb
+        const FullDirectors = list[86].textContent.slice(10).trim().split(','); // directors
+        const movieTags = list[88].textContent.slice(7).trim().split('|').map((tag)=>tag.trim()); // tags
+        let language = list[89].textContent.slice(9).trim().split('|').map((lang)=> lang.trim()); // language
+        language = language.map((lang)=>lang.toLocaleUpperCase())
+        if(language.includes('ENGLISH')){
+          if(language.includes('HINDI')) language = 'HINDI';
+          else language = 'ENGLISH';
+        }
+        else language = 'HINDI';
+        
+        let downloads = dom.window.document.getElementsByTagName('h2');
+        let downloadLinks = [];
+        let fobj = {
+          quality:downloads[2].textContent.split(' ')[0],
+          link:downloads[2].getElementsByTagName('a')[0].href
+        }
+        let sobj = {
+          quality:downloads[3].textContent.split(' ')[0],
+          link:downloads[3].getElementsByTagName('a')[0].href
+        }
+        downloadLinks.push(fobj);
+        downloadLinks.push(sobj);
+        language = language.toLowerCase();
+        downloads = {
+          language:downloadLinks,
+        }
+        movieTags.push(language);
+        //console.log(FullDirectors,imdb,movieTags,language,downloads);
+        const tagDescription = dom.window.document.getElementsByTagName('p')[3].textContent;
+        console.log(tagDescription);
+        const tmp = await Movies.insertMany([{
+          movieName: title,
+          movieDescription: tagDescription,
+          movieThumbnail: thumbnail,
+          releaseYear: year.split('(')[1].split(')')[0],
+          imdb: imdb,
+          movieDirectors: FullDirectors,
+          movieTags: movieTags,
+          movieShots: images,
+          movieReview: '',
+          movieDownloads: {
+            english: (language === 'english')? downloadLinks:[],
+            hindi: (language === 'hindi')? downloadLinks:[],
+            subbed: (language === 'subbed')? downloadLinks:[],
+          }
+        }]);
+  
+        console.log(tmp);
+
+        res.json({ status: 'success', data: images });
+
+      } catch (error) {
+        console.log(error);
+        res.json({ status: error });
+      }
+  })
+
   app.get('/domain', async (req, res) => {
     // let a = req.query.old;
     // let b = req.query.new;
