@@ -460,7 +460,11 @@ const startServer = async () => {
         }
         movieTags.push(language);
         //console.log(FullDirectors,imdb,movieTags,language,downloads);
-        const tagDescription = dom.window.document.getElementsByTagName('p')[3].textContent;
+        let tagDescription = dom.window.document.getElementsByTagName('p');
+        tagDescription = Array.from(tagDescription);
+        tagDescription = tagDescription.findIndex((para)=>para.textContent.includes('DESCRIPTION'));
+        tagDescription = tagDescription + 1;
+        tagDescription = dom.window.document.getElementsByTagName('p')[tagDescription].textContent;
         console.log(tagDescription);
         const tmp = await Movies.insertMany([{
           movieName: title,

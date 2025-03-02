@@ -81,7 +81,7 @@ const DataCorosal = ({ tag, product,mainHeading,subHeading }) => {
                 onSwiper={(swiper) => console.log(swiper)}
                 onSlideChange={() => console.log('slide change')}
                 effect='fade'
-                className={`dark:bg-black dark:md:bg-black ${(Corosal.length === 0) ? 'h-0' : 'h-[45rem]'} `}
+                className={`dark:bg-black dark:md:bg-black ${(Corosal.length === 0) ? 'h-0' : 'h-fit'} `}
             >
                 {/* <SwiperSlide>
                 <div className='flex justify-center'>
@@ -95,8 +95,8 @@ const DataCorosal = ({ tag, product,mainHeading,subHeading }) => {
                 </div>
             </SwiperSlide>) : <></>} */}
 
-                {(!loading) ? Corosal.map((cur) => <SwiperSlide className='' key={cur._id}>
-                    <div className='flex justify-center'>
+                {(!loading) ? Corosal.map((cur) => <SwiperSlide className='h-fit py-10' key={cur._id}>
+                    <div className='flex justify-center h-fit'>
                         <Label key={cur._id} id={cur._id} title={cur.movieName} thumb={cur.movieThumbnail} tags={cur.movieTags} />
                     </div>
                 </SwiperSlide>) : <>
