@@ -95,7 +95,7 @@ const DataCorosal = ({ tag, product,mainHeading,subHeading }) => {
                 </div>
             </SwiperSlide>) : <></>} */}
 
-                {(!loading) ? Corosal.map((cur) => <SwiperSlide className='h-fit py-10' key={cur._id}>
+                {(!loading) ? Corosal.map((cur) => <SwiperSlide className='h-fit pb-10' key={cur._id}>
                     <div className='flex justify-center h-fit'>
                         <Label key={cur._id} id={cur._id} title={cur.movieName} thumb={cur.movieThumbnail} tags={cur.movieTags} />
                     </div>
