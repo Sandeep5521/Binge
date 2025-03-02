@@ -285,8 +285,8 @@ const startServer = async () => {
               return await Movies.find().skip(Skip).limit(limit).sort({ date: -1 });
             }
           }
-          if (year) return await Movies.find({ releaseYear: year })
-          if (tag) return await Movies.find({ movieTags: { $all: Tag } });
+          if (year) return await Movies.find({ releaseYear: year }).sort({ date: -1 })
+          if (tag) return await Movies.find({ movieTags: { $all: Tag } }).sort({ date: -1 });
           if (name) {
             const tmp = await Movies.find({ movieName: { $regex: name, $options: 'i' } })
 
