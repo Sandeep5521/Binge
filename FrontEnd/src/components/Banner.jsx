@@ -80,11 +80,11 @@ const Banner = () => {
       navigation
       autoplay={true}
       pagination={{ clickable: true }}
-      scrollbar={{ draggable: true }}
+      scrollbar={{ draggable: true, hide: true }}
       keyboard={{ enabled: true, onlyInViewport: false }}
       onSwiper={(swiper) => console.log(swiper)}
       onSlideChange={() => console.log('slide change')}
-      className='bg-black h-[30rem]'
+      className='dark:bg-black h-[30rem]'
       effect='fade'
     >
       {/* <SwiperSlide>

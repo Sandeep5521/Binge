@@ -20,7 +20,8 @@ const Search = () => {
                           _id,
                           movieName,
                           movieThumbnail,
-                          movieTags
+                          movieTags,
+                          releaseYear
                         }
                       }`,
         variables: {
@@ -59,8 +60,8 @@ const Search = () => {
 
   return (
     <div>
-      <div className={`bg-[#141519] h-16 lg:h-24 flex justify-center items-center`}>
-        <input autoFocus type="text" id='text' className='h-10 lg:h-14 pr-10 bg-transparent border-b-2 border-b-orange-600 outline-none text-white text-xl lg:text-3xl w-[90%] lg:w-[60%]' placeholder='Search...' value={Text} onKeyDown={(event)=>{
+      <div className={`dark:bg-[#141519] bg-white h-16 lg:h-24 flex justify-center items-center`}>
+        <input autoFocus type="text" id='text' className='h-10 lg:h-14 pr-10 bg-transparent border-b-2 border-b-orange-600 outline-none dark:text-white text-black text-xl lg:text-3xl w-[90%] lg:w-[60%]' placeholder='Search...' value={Text} onKeyDown={(event)=>{
           if(event.key === 'Enter'){
             event.target.blur(); // for unfocusing the input field
           }

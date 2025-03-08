@@ -57,7 +57,7 @@ function NavListMenu({ setOpen }) {
             <Typography
               variant="h6"
               color="blue-gray"
-              className="flex items-center text-sm font-bold"
+              className="flex items-center text-sm font-bold dark:text-white text-black hover:text-orange-500"
             >
               {tagName.charAt(0).toUpperCase() + tagName.slice(1)}
             </Typography>
@@ -108,15 +108,15 @@ function NavListMenu({ setOpen }) {
                 setIsMobileMenuOpen((cur) => !cur)
               }}
             >
-              <span className='text-white'>Browse</span>
+              <span className='dark:text-white text-black'>Browse</span>
               <ChevronDownIcon
                 strokeWidth={2.5}
-                className={`hidden h-3 w-3 text-white transition-transform lg:block ${isMenuOpen ? "rotate-180" : ""
+                className={`hidden h-3 w-3 dark:text-white text-black transition-transform lg:block ${isMenuOpen ? "rotate-180" : ""
                   }`}
               />
               <ChevronDownIcon
                 strokeWidth={2.5}
-                className={`block h-3 w-3 text-white transition-transform lg:hidden ${isMobileMenuOpen ? "rotate-180" : ""
+                className={`block h-3 w-3 dark:text-white text-black transition-transform lg:hidden ${isMobileMenuOpen ? "rotate-180" : ""
                   }`}
               />
             </ListItem>
@@ -187,16 +187,19 @@ function NavList({ display, open }) {
         variant="small"
         color="blue-gray"
         className="p-1 font-medium z-20"
-        onClick={()=>{
-          if(open) open(false);
+        onClick={() => {
+          if (open) open(false);
           console.log(typeof open)
           gotoComp({
-            display:'search'
+            display: 'search'
           });
         }}
       >
-        <a href="#" className="flex items-center hover:text-white transition-colors">
-          <img src={search} className='lg:block hidden w-10 cursor-pointer hover:scale-105' />
+        <a href="#" className="flex items-center dark:text-white text-black hover:text-white transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="lg:block dark:text-white text-black hidden w-7 cursor-pointer hover:scale-105">
+            <path fill-rule="evenodd" d="M10.5 3.75a6.75 6.75 0 1 0 0 13.5 6.75 6.75 0 0 0 0-13.5ZM2.25 10.5a8.25 8.25 0 1 1 14.59 5.28l4.69 4.69a.75.75 0 1 1-1.06 1.06l-4.69-4.69A8.25 8.25 0 0 1 2.25 10.5Z" clip-rule="evenodd" />
+          </svg>
+          {/* <img src={search} className='lg:block dark:text-white text-black hidden w-10 cursor-pointer hover:scale-105' /> */}
           <span className='text-md block lg:hidden'>Search</span>
         </a>
       </Typography>
@@ -216,15 +219,15 @@ function NavList({ display, open }) {
         variant="small"
         color="blue-gray"
         className="p-1 font-medium"
-        onClick={()=>{
-          if(open) open(false);
+        onClick={() => {
+          if (open) open(false);
           console.log(typeof open)
           gotoComp({
-            display:'about'
+            display: 'about'
           });
         }}
       >
-        <a href="#" className="flex items-center hover:text-white transition-colors">
+        <a href="#" className="flex items-center dark:text-white text-black hover:text-white transition-colors">
           About
         </a>
       </Typography>
@@ -233,15 +236,15 @@ function NavList({ display, open }) {
         variant="small"
         color="blue-gray"
         className="p-1 font-medium"
-        onClick={()=>{
-          if(open) open(false);
+        onClick={() => {
+          if (open) open(false);
           console.log(typeof open)
           gotoComp({
-            display:'docs'
+            display: 'docs'
           });
         }}
       >
-        <a href="#" className="flex items-center hover:text-white transition-colors">
+        <a href="#" className="flex items-center dark:text-white text-black hover:text-white transition-colors">
           Docs
         </a>
       </Typography>
@@ -267,46 +270,46 @@ export default function NavbarSimple() {
 
   return (
     <>
-    <Navbar className="max-w-screen w-screen fixed text-white px-6 lg:px-16 py-4 rounded-none backdrop-blur bg-opacity-40 bg-[#23252b] z-10">
-      <div className="flex items-center justify-between text-blue-gray-900">
-        <Typography
-          as="a"
-          href="#"
-          variant="h6"
-          className="mr-4 cursor-pointer py-1.5 text-orange-500 font-bold text-xl"
-          onClick={()=>{
-            setOpenNav(false)
-            gotoComp({
-              display:'home'
-            });
-          }}
-        >
-          <div className={`flex space-x-1.5`}>
-            <img src={`${logo}`} className={`w-8 h-5 scale-[5] ml-12 my-1.5 `} />
-            {/* <div>Binge</div> */}
+      <Navbar className="max-w-screen w-screen fixed text-white px-6 lg:px-16 py-4 rounded-none backdrop-blur bg-opacity-10 bg-[#23252b] z-10">
+        <div className="flex items-center justify-between text-blue-gray-900">
+          <Typography
+            as="a"
+            href="#"
+            variant="h6"
+            className="mr-4 cursor-pointer py-1.5 text-orange-500 font-bold text-xl"
+            onClick={() => {
+              setOpenNav(false)
+              gotoComp({
+                display: 'home'
+              });
+            }}
+          >
+            <div className={`flex space-x-1.5`}>
+              <img src={`${logo}`} className={`w-8 h-5 scale-[5] ml-12 my-1.5 `} />
+              {/* <div>Binge</div> */}
+            </div>
+          </Typography>
+          <div className="hidden lg:block">
+            <NavList display={''} />
           </div>
-        </Typography>
-        <div className="hidden lg:block">
-          <NavList display={''} />
+          <IconButton
+            variant="text"
+            className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
+            ripple={false}
+            onClick={() => setOpenNav(!openNav)}
+          >
+            {openNav ? (
+              <XMarkIcon className="h-6 w-6 dark:text-white text-black absolute -right-4 -top-2" strokeWidth={2} />
+            ) : (
+              <Bars3Icon className="h-6 w-6 dark:text-white text-black absolute -right-4 -top-2" strokeWidth={2} />
+            )}
+          </IconButton>
         </div>
-        <IconButton
-          variant="text"
-          className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
-          ripple={false}
-          onClick={() => setOpenNav(!openNav)}
-        >
-          {openNav ? (
-            <XMarkIcon className="h-6 w-6 absolute -right-4 -top-2" strokeWidth={2} />
-          ) : (
-            <Bars3Icon className="h-6 w-6 absolute -right-4 -top-2" strokeWidth={2} />
-          )}
-        </IconButton>
-      </div>
-      <Collapse open={openNav}>
-        <NavList open={setOpenNav} display={(!openNav) ? 'hidden' : ''} />
-      </Collapse>
-    </Navbar>
-    <div className={`h-[4.5rem] w-full bg-black`}></div>
+        <Collapse open={openNav}>
+          <NavList open={setOpenNav} display={(!openNav) ? 'hidden' : ''} />
+        </Collapse>
+      </Navbar>
+      <div className={`h-[4.7rem] w-full dark:bg-black`}></div>
     </>
   );
 }

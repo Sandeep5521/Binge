@@ -36,12 +36,12 @@ export default function Genre({ data }) {
     tmp = await tmp.json();
     //console.log(tmp);
     let mov = tmp.data.Movies;
-    mov = mov.map((cur) => {
-      return {
-        ...cur,
-        movieName: cur.movieName + " " + "(" + cur.releaseYear + ")"
-      }
-    })
+    // mov = mov.map((cur) => {
+    //   return {
+    //     ...cur,
+    //     movieName: cur.movieName + " " + "(" + cur.releaseYear + ")"
+    //   }
+    // })
     //console.log("Genre is => ",mov)
     setGenre(mov);
     setText(tmp.data.Tag.tagDescription);

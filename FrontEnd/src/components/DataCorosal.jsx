@@ -47,12 +47,12 @@ const DataCorosal = ({ tag, product,mainHeading,subHeading }) => {
         //console.log('ss4 =>', tmp);
         let data = (product) ? tmp.data.Movies.filter((cur) => cur._id != product) : tmp.data.Movies;
         //console.log('ss3 =>', data[0].releaseYear,typeof data[0].releaseYear,data[0].releaseYear.length);
-        data = data.map((cur) => {
-            return {
-                ...cur,
-                movieName: cur.movieName + " " + ((cur.releaseYear) ? "(" + cur.releaseYear + ") " : "")
-            }
-        })
+        // data = data.map((cur) => {
+        //     return {
+        //         ...cur,
+        //         movieName: cur.movieName + " " + ((cur.releaseYear) ? "(" + cur.releaseYear + ") " : "")
+        //     }
+        // })
         setCorosal(data);
         setLoading(false);
     }
@@ -104,7 +104,7 @@ const DataCorosal = ({ tag, product,mainHeading,subHeading }) => {
 
                 {(!loading) ? Corosal.map((cur) => <SwiperSlide className='h-fit pb-5' key={cur._id}>
                     <div className='flex justify-center h-fit'>
-                        <Label key={cur._id} id={cur._id} title={cur.movieName} thumb={cur.movieThumbnail} tags={cur.movieTags} />
+                        <Label key={cur._id} id={cur._id} title={cur.movieName} thumb={cur.movieThumbnail} tags={cur.movieTags} year={cur.releaseYear} />
                     </div>
                 </SwiperSlide>) : <>
                     <SwiperSlide>
