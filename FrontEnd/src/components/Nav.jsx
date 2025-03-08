@@ -227,7 +227,7 @@ function NavList({ display, open }) {
           });
         }}
       >
-        <a href="#" className="flex items-center dark:text-white text-black hover:text-white transition-colors">
+        <a href="#" className="flex items-center dark:text-white text-black transition-colors">
           About
         </a>
       </Typography>
@@ -244,7 +244,7 @@ function NavList({ display, open }) {
           });
         }}
       >
-        <a href="#" className="flex items-center dark:text-white text-black hover:text-white transition-colors">
+        <a href="#" className="flex items-center dark:text-white text-black transition-colors">
           Docs
         </a>
       </Typography>
