@@ -44,8 +44,15 @@ const DataCorosal = ({ tag, product,mainHeading,subHeading }) => {
             })
         });
         tmp = await tmp.json();
-        console.log('ss4 =>', tmp);
+        //console.log('ss4 =>', tmp);
         let data = (product) ? tmp.data.Movies.filter((cur) => cur._id != product) : tmp.data.Movies;
+        //console.log('ss3 =>', data[0].releaseYear,typeof data[0].releaseYear,data[0].releaseYear.length);
+        data = data.map((cur) => {
+            return {
+                ...cur,
+                movieName: cur.movieName + " " + ((cur.releaseYear) ? "(" + cur.releaseYear + ") " : "")
+            }
+        })
         setCorosal(data);
         setLoading(false);
     }
