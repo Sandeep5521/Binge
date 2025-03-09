@@ -408,7 +408,8 @@ const startServer = async () => {
         let images = dom.window.document.getElementsByTagName('img');
         images = Array.from(images);
         let thumbnail = images.filter((img) => {
-          return img.className.includes('aligncenter') || img.className.includes('alignnone') || img.src.includes('catimages')
+          // return img.className.includes('aligncenter') || img.className.includes('alignnone') || img.src.includes('catimages')
+          return img.className.includes('aligncenter') || img.src.includes('catimages')
         })
         console.log(thumbnail[0].src," class got");
         thumbnail = thumbnail[0].src; // thumbnail
