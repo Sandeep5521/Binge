@@ -14,6 +14,7 @@ import { ChevronDownIcon, Bars3Icon, XMarkIcon } from "@heroicons/react/24/outli
 import logo from "../images/logo.png";
 import { parent } from "../App.jsx";
 import search from "../images/search.png";
+import Search from './Search.jsx';
 
 function NavListMenu({ setOpen }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -200,7 +201,7 @@ function NavList({ display, open }) {
             <path fill-rule="evenodd" d="M10.5 3.75a6.75 6.75 0 1 0 0 13.5 6.75 6.75 0 0 0 0-13.5ZM2.25 10.5a8.25 8.25 0 1 1 14.59 5.28l4.69 4.69a.75.75 0 1 1-1.06 1.06l-4.69-4.69A8.25 8.25 0 0 1 2.25 10.5Z" clip-rule="evenodd" />
           </svg>
           {/* <img src={search} className='lg:block dark:text-white text-black hidden w-10 cursor-pointer hover:scale-105' /> */}
-          <span className='text-md block lg:hidden'>Search</span>
+          {/* <span className='text-md block lg:hidden'>Search</span> */}
         </a>
       </Typography>
       <NavListMenu setOpen={open} />
@@ -296,12 +297,27 @@ export default function NavbarSimple() {
             variant="text"
             className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
             ripple={false}
+            onClick={() => {
+              if (openNav) setOpenNav(false);
+              console.log(typeof openNav)
+              gotoComp({
+                display: 'search'
+              });
+            }}>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-6 w-6 dark:text-white text-black absolute -right-20 -top-3 cursor-pointer hover:scale-105">
+              <path fill-rule="evenodd" d="M10.5 3.75a6.75 6.75 0 1 0 0 13.5 6.75 6.75 0 0 0 0-13.5ZM2.25 10.5a8.25 8.25 0 1 1 14.59 5.28l4.69 4.69a.75.75 0 1 1-1.06 1.06l-4.69-4.69A8.25 8.25 0 0 1 2.25 10.5Z" clip-rule="evenodd" />
+            </svg>
+          </IconButton>
+          <IconButton
+            variant="text"
+            className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
+            ripple={false}
             onClick={() => setOpenNav(!openNav)}
           >
             {openNav ? (
-              <XMarkIcon className="h-6 w-6 dark:text-white text-black absolute -right-4 -top-2" strokeWidth={2} />
+              <XMarkIcon className="h-6 w-6 dark:text-white text-black absolute -right-3 -top-3" strokeWidth={2} />
             ) : (
-              <Bars3Icon className="h-6 w-6 dark:text-white text-black absolute -right-4 -top-2" strokeWidth={2} />
+              <Bars3Icon className="h-6 w-6 dark:text-white text-black absolute -right-3 -top-3" strokeWidth={2} />
             )}
           </IconButton>
         </div>
