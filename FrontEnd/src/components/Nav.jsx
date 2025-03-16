@@ -112,12 +112,12 @@ function NavListMenu({ setOpen }) {
               <span className='dark:text-white text-black'>Browse</span>
               <ChevronDownIcon
                 strokeWidth={2.5}
-                className={`hidden h-3 w-3 dark:text-white text-black transition-transform lg:block ${isMenuOpen ? "rotate-180" : ""
+                className={`hidden h-3 w-3 dark:text-white text-black transition-transform lg:block mt-1 ${isMenuOpen ? "rotate-180" : ""
                   }`}
               />
               <ChevronDownIcon
                 strokeWidth={2.5}
-                className={`block h-3 w-3 dark:text-white text-black transition-transform lg:hidden ${isMobileMenuOpen ? "rotate-180" : ""
+                className={`block h-3 w-3 dark:text-white text-black transition-transform lg:hidden mt-1 ${isMobileMenuOpen ? "rotate-180" : ""
                   }`}
               />
             </ListItem>
