@@ -17,7 +17,10 @@ const Label = ({ title, thumb, tags, id, year }) => {
             data: cur
         })
     }}>{cur.charAt(0).toUpperCase() + cur.slice(1)}</div>) : <></>
-
+    let list = title.split(" ");
+    list = list.map((cur) => {
+        return cur.charAt(0).toUpperCase() + cur.slice(1)
+    })
     return (
         <Card className="w-[90%] bg-transparent dark:border-black dark:border-4 cursor-pointer shadow-none">
             <CardHeader color="blue-gray" className="h-fit flex justify-center" onClick={() => {
@@ -35,7 +38,7 @@ const Label = ({ title, thumb, tags, id, year }) => {
                         data: id
                     })
                 }}>
-                    {(title.charAt(0).toUpperCase() + title.slice(1))+ ((year) ? " (" + year + ")" : "")}
+                    {list.join(' ')+ ((year) ? " (" + year + ")" : "")}
                 </Typography>
                 <Typography variant="h1" color="blue-gray" className="h-fit -ml-1.5 flex text-left flex-wrap items-center justify-self-start dark:text-white">
                     {Tags}
