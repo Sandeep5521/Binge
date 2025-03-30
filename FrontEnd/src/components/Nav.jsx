@@ -271,7 +271,7 @@ export default function NavbarSimple() {
 
   return (
     <>
-      <Navbar className="border-transparent max-w-screen w-screen fixed text-white px-6 lg:px-16 py-4 rounded-none backdrop-blur bg-opacity-10 bg-[#23252b] z-10">
+      <Navbar className="border-transparent max-w-screen w-screen fixed text-white px-6 lg:px-16 py-4 rounded-none dark:bg-[#23252b] bg-white z-10">
         <div className="flex items-center justify-between text-blue-gray-900">
           <Typography
             as="a"
