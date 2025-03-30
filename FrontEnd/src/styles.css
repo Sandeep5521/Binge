@@ -1,0 +1,20 @@
+/* Change color, size, and position of default Swiper arrows */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #f97316; /* Change arrow color */
+}
+
+/* Position adjustments */
+.swiper-button-prev {
+  left: 10px;
+}
+
+.swiper-button-next {
+  right: 10px;
+}
+
+/* Hover effect */
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  color: orange;
+}

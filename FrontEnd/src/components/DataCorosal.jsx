@@ -14,6 +14,8 @@ import LoadingCard from './LoadingCard';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/bundle'
+import "swiper/css/navigation";
+import "../styles.css"; // Import custom CSS
 import { useEffect } from 'react';
 
 const DataCorosal = ({ tag, product,mainHeading,subHeading }) => {
