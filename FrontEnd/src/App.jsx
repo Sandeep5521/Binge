@@ -16,7 +16,7 @@ export default function App() {
   const [Comp, setComp] = useState({
     display: 'home',
     data: 'adventure'
-  }) 
+  })
 
   const gotoComp = (obj) => {
     //console.log('hii')
@@ -29,23 +29,23 @@ export default function App() {
     })
   }
 
-  const Page = () =>{
-    if(Comp.display == 'genre') return <Genre data={Comp.data}/>
-    if(Comp.display == 'search') return <Search/>
-    if(Comp.display == 'page') return <Product id={Comp.data}/>
-    if(Comp.display == 'about') return <About/>
-    if(Comp.display == 'docs') return <Docs/>
-    return <Home/>
+  const Page = () => {
+    if (Comp.display == 'genre') return <Genre data={Comp.data} />
+    if (Comp.display == 'search') return <Search />
+    if (Comp.display == 'page') return <Product id={Comp.data} />
+    if (Comp.display == 'about') return <About />
+    if (Comp.display == 'docs') return <Docs />
+    return <Home />
   }
 
   return (
-    <>
+    <div className='dark:selection:bg-orange-400 selection:text-black selection:bg-orange-400'>  
       <parent.Provider value={gotoComp}>
         <Nav />
-        <Page/>
-        <SimpleFooter/>
+        <Page />
+        <SimpleFooter />
       </parent.Provider>
-    </>
+    </div>
   )
 }
 export { parent };
