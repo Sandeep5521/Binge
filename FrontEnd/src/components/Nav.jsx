@@ -15,6 +15,7 @@ import logo from "../images/logo.png";
 import { parent } from "../App.jsx";
 import search from "../images/search.png";
 import Search from './Search.jsx';
+import '../styles.css'
 
 function NavListMenu({ setOpen }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -295,11 +296,11 @@ export default function NavbarSimple() {
           </div>
           <IconButton
             variant="text"
-            className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden hover:cursor-default"
+            className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden hover:cursor-default parent"
             ripple={false}
             style={{WebkitTapHighlightColor: 'transparent'}}
           >
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-6 w-6 dark:text-white text-black absolute -right-20 -top-3 sm:-right-[19rem] cursor-pointer hover:scale-105" onClick={() => {
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-6 w-6 dark:text-white text-black absolute -top-3 cursor-pointer hover:scale-105" onClick={() => {
               if (openNav) setOpenNav(false);
               console.log(typeof openNav)
               gotoComp({

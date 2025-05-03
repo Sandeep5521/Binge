@@ -18,3 +18,7 @@
 .swiper-button-prev:hover {
   color: orange;
 }
+
+.parent:has(svg) {
+  left: 37%;
+}
