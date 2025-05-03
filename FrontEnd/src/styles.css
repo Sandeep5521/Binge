@@ -20,5 +20,5 @@
 }
 
 .parent:has(svg) {
-  left: 37%;
+  left: 35%;
 }
