@@ -68,7 +68,7 @@ const Search = () => {
         }} onChange={(event) => {
           setText(event.target.value);
         }} />
-        <img src={close} className={`w-5 absolute right-6 sm:right-11 lg:right-[19.5rem] cursor-pointer lg:top-[7.2rem] ${(Text.length > 0) ? 'block' : 'hidden'}`} onClick={() => {
+        <img src={close} className={`w-5 absolute right-6 sm:right-11 lg:right-[17.5rem] cursor-pointer lg:top-[7.2rem] ${(Text.length > 0) ? 'block' : 'hidden'}`} onClick={() => {
           setText("");
         }} />
       </div>
