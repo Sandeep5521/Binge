@@ -45,7 +45,7 @@ const Banner = () => {
     tmp = await tmp.json();
     console.log('ss4 =>', tmp);
     setList(tmp.data.Movies);
-    //setLoading(false);
+    setLoading(false);
   }
 
   useEffect(()=>{
