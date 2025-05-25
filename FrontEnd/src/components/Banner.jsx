@@ -19,6 +19,7 @@ import { useContext, useEffect, useState } from 'react';
 
 const Banner = () => {
   const [List, setList] = useState([]);
+  const [Loading,setLoading] = useState(true);
   const gotoComp = useContext(parent);
   const getList = async () => {
     let tmp = await fetch('https://bingeql.onrender.com/graphQL', {
@@ -44,6 +45,7 @@ const Banner = () => {
     tmp = await tmp.json();
     console.log('ss4 =>', tmp);
     setList(tmp.data.Movies);
+    //setLoading(false);
   }
 
   useEffect(()=>{
@@ -95,13 +97,13 @@ const Banner = () => {
 
       {List.map((cur) => {
         return (
-          <SwiperSlide key={cur._id}>
-            <div className='flex justify-center cursor-pointer hover:brightness-75' onClick={()=>gotoComp({
+          <SwiperSlide key={cur._id} className='flex justify-center items-center'>
+            {(Loading) ? <div className='h-full w-full flex justify-center items-center text-2xl dark:text-white animate-pulse bg-gray-500 dark:border dark:border-black'>Loading...</div> :<div className='flex justify-center cursor-pointer hover:brightness-75' onClick={()=>gotoComp({
                     display: 'page',
                     data: cur._id
                 })}>
-              <img src={cur.movieThumbnail} alt="" className='object-fit' />
-            </div>
+              <img src={cur.movieThumbnail} alt="" className='w-96 object-fit' />
+            </div>}
           </SwiperSlide>
         )
       })}
