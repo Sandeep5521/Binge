@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import close from '../images/close.png'
 import Data from './Data';
 import LoadingCard from './LoadingCard';
+import Pagination from './Pagination';
 
 const Search = () => {
   const [Text, setText] = useState("");
@@ -15,8 +16,8 @@ const Search = () => {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        query: `query ExampleQuery($name: String) {
-                        Movies(name: $name) {
+        query: `query ExampleQuery($name: String,$page: Int, $limit: Int) {
+                        Movies(name: $name, page: $page, limit: $limit) {
                           _id,
                           movieName,
                           movieThumbnail,
@@ -25,12 +26,14 @@ const Search = () => {
                         }
                       }`,
         variables: {
-          name: Text
+          name: Text,
+          page: 1,
+          limit: 18
         }
       })
     });
     tmp = await tmp.json();
-    console.log(tmp);
+    console.log("page =>",tmp);
     setSearchList(tmp.data.Movies);
     setLoading(false);
   }
@@ -73,6 +76,7 @@ const Search = () => {
         }} />
       </div>
       <IsLoading />
+      {/* <Pagination /> */}
     </div>
   )
 }
