@@ -29,7 +29,7 @@ const Label = ({ title, thumb, tags, id, year }) => {
                     data: id
                 })
             }}>
-                <img className={`rounded-xl shadow-xl hover:brightness-75`} src={thumb} alt="img-blur-shadow" layout="fill" />
+                <img className={`rounded-xl shadow-xl hover:brightness-75 w-[26rem]`} src={thumb} alt="img-blur-shadow" layout="fill" />
             </CardHeader>
             <CardBody className="text-left">
                 <Typography variant="h5" color="blue-gray" className="mb-2 dark:text-white hover:brightness-75" onClick={() => {
