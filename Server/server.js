@@ -278,18 +278,19 @@ const startServer = async () => {
               return tmp;
             }
           }
-          if (page && limit) {
-            const Count = await Movies.find().count();
-            const Skip = (page - 1) * limit;
-            if (Skip < Count) {
-              return await Movies.find().skip(Skip).limit(limit).sort({ date: -1 });
-            }
-          }
+          
           if (page && limit && name) {
             const Count = await Movies.find({ movieName: { $regex: name, $options: 'i' } }).count();
             const Skip = (page - 1) * limit;
             if (Skip < Count) {
               return await Movies.find({ movieName: { $regex: name, $options: 'i' } }).skip(Skip).limit(limit).sort({ date: -1 });
+            }
+          }
+          if (page && limit) {
+            const Count = await Movies.find().count();
+            const Skip = (page - 1) * limit;
+            if (Skip < Count) {
+              return await Movies.find().skip(Skip).limit(limit).sort({ date: -1 });
             }
           }
           if (year) return await Movies.find({ releaseYear: year }).sort({ date: -1 })
