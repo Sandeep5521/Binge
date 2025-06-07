@@ -2,9 +2,10 @@ import { useState, useEffect } from 'react'
 import { Button, IconButton } from "@material-tailwind/react";
 import { ArrowRightIcon, ArrowLeftIcon } from "@heroicons/react/24/outline";
 
-const Pagination = ({ pageHandle, Total, limit,Page }) => {
+const Pagination = ({ pageHandle, Total,limit,Page }) => {
   const [active, setActive] = useState(Page || 1);
   const [List, setList] = useState([]);
+  const PageShowlimit = limit; // Number of items to display per page
   // Sandeeep : You have to be consistent 
 
   useEffect(() => {
@@ -52,12 +53,12 @@ const Pagination = ({ pageHandle, Total, limit,Page }) => {
         onClick={prev}
         disabled={active === 1}
       >
-        <ArrowLeftIcon strokeWidth={2} className="h-4 w-4" /> Previous
+        <ArrowLeftIcon strokeWidth={2} className="h-4 w-4" /> <span className="hidden md:inline">Previous</span>
       </Button>
-      <div className="flex items-center gap-2">
+      <div className={`flex items-center gap-2`}>
         {
-          (active%limit === 1)?
-            List.slice(active - 1, active + 4).map((item, index) => (
+          (active%PageShowlimit === 1)?
+            List.slice(active - 1, active + PageShowlimit-1).map((item, index) => (
             <IconButton
               key={index}
               {...getItemProps(item)}
@@ -70,7 +71,7 @@ const Pagination = ({ pageHandle, Total, limit,Page }) => {
               {item}
             </IconButton>
           )):
-            List.slice(active-((active%limit === 0)? limit:active%limit), (active-((active%limit === 0)? limit:active%limit)) + 5).map((item, index) => (
+            List.slice(active-((active%PageShowlimit === 0)? PageShowlimit:active%PageShowlimit), (active-((active%PageShowlimit === 0)? PageShowlimit:active%PageShowlimit)) + PageShowlimit).map((item, index) => (
             <IconButton
               key={index}
               {...getItemProps(item)}
@@ -93,7 +94,7 @@ const Pagination = ({ pageHandle, Total, limit,Page }) => {
           || List.length === 0 || List.length === 1}
         // Disable if active is the last page or if there are no items
       >
-        Next
+        <span className="hidden md:inline">Next</span>
         <ArrowRightIcon strokeWidth={2} className="h-4 w-4" />
       </Button>
     </div>

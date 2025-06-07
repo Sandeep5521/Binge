@@ -7,7 +7,7 @@ import Pagination from './Pagination';
 const Search = () => {
   const [Text, setText] = useState("");
   const [Page, setPage] = useState(1);
-  const [Limit, setLimit] = useState(5);
+  const [Limit, setLimit] = useState(15);
   const [Total, setTotal] = useState(0);
   const [SearchList, setSearchList] = useState([]);
   const [Loading, setLoading] = useState(true);
@@ -126,7 +126,7 @@ useEffect(() => {
       <IsLoading />
       {
         (Total > Limit && !Loading) && (
-          <Pagination pageHandle={handlePageChange} Total={Math.ceil(Total / Limit)} limit={Limit} Page={Page} />
+          <Pagination pageHandle={handlePageChange} Total={Math.ceil(Total / Limit)} limit={3} Page={Page} />
         )
       }
     </div>
