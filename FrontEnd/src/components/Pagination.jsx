@@ -5,8 +5,22 @@ import { ArrowRightIcon, ArrowLeftIcon } from "@heroicons/react/24/outline";
 const Pagination = ({ pageHandle, Total,limit,Page }) => {
   const [active, setActive] = useState(Page || 1);
   const [List, setList] = useState([]);
-  const PageShowlimit = limit; // Number of items to display per page
+  const [PageShowlimit, setPageShowlimit] = useState(limit || 3); // Default fallback
   // Sandeeep : You have to be consistent 
+
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      if (width < 400) setPageShowlimit(3);
+      else if (width < 768) setPageShowlimit(5);
+      else if (width < 1024) setPageShowlimit(7);
+      else setPageShowlimit(10);
+    };
+
+    handleResize(); // initial check
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     let tmp = [];
