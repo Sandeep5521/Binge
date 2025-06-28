@@ -299,7 +299,7 @@ export default function NavbarSimple() {
             ripple={false}
             style={{WebkitTapHighlightColor: 'transparent'}}
           >
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-6 w-6 dark:text-white text-black absolute -right-20 -top-3 cursor-pointer hover:scale-105" onClick={() => {
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-6 w-6 dark:text-red-500 text-black absolute sm:-right-[17rem] -right-20 -top-3 cursor-pointer hover:scale-105" onClick={() => {
               if (openNav) setOpenNav(false);
               console.log(typeof openNav)
               gotoComp({
