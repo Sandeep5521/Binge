@@ -12,7 +12,7 @@ const GenreBanner = ({ genre = "Action", description, image }) => {
       <div className="absolute inset-0 bg-black bg-opacity-60"></div>
 
       {/* Content */}
-      <div className="relative z-10 text-center px-4 py-20">
+      <div className="relative z-[5] text-center px-4 py-20">
         <h2 className="text-4xl md:text-5xl font-extrabold tracking-wide mb-4">
           🎬 {genre}
         </h2>
