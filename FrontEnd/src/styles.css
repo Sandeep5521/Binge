@@ -22,3 +22,22 @@
 .parent:has(svg) {
   left: 35%;
 }
+
+/* Inactive dots */
+.swiper-pagination-bullet {
+  background-color: #888; /* Gray by default */
+  width: 10px;
+  height: 10px;
+  opacity: 1;
+  margin: 0 4px;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
+/* Active dot */
+.swiper-pagination-bullet-active {
+  background-color: #ff5722; /* Bright orange active dot */
+  width: 12px;
+  height: 12px;
+}
+
