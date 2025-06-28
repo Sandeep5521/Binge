@@ -36,20 +36,24 @@ export default function Genre({ data }) {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        query: `query ExampleQuery($name: String) {
-                        Movies(name: $name) {
+        query: `query ExampleQuery($tag: String) {
+                        Movies(tag: $tag) {
                           _id,
                           movieName,
                           movieThumbnail,
                           movieTags,
                           releaseYear
                         }
-                      }`
+                      }`,
+        variables: {
+          tag: data
+        }
       })
     });
     tmp = await tmp.json();
     console.log("getCount =>", tmp.data.Movies.length);
     setTotal(tmp.data.Movies.length);
+    console.log('data =>', data);
     console.log("Count =>", tmp);
     setLoading(false);
   }
@@ -89,7 +93,7 @@ export default function Genre({ data }) {
     //     movieName: cur.movieName + " " + "(" + cur.releaseYear + ")"
     //   }
     // })
-    //console.log("Genre is => ",mov)
+    console.log("Genre is => ",mov)
     setGenre(mov);
     setText(tmp.data.Tag.tagDescription);
     setLoading(false);
@@ -120,7 +124,7 @@ export default function Genre({ data }) {
       if(data === "adventure") {
         return AdventureImage; // Replace with the actual image path for adventure genre
       }
-      if(data === "animated") {
+      if(data === "animation") {
         return AnimatedImage; // Replace with the actual image path for animated genre
       }
       if(data === "crime") {
