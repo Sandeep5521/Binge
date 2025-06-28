@@ -82,7 +82,6 @@ const Banner = () => {
       navigation
       autoplay={true}
       pagination={{ clickable: true }}
-      scrollbar={{ draggable: true, hide: true }}
       keyboard={{ enabled: true, onlyInViewport: false }}
       onSwiper={(swiper) => console.log(swiper)}
       onSlideChange={() => console.log('slide change')}
