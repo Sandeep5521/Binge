@@ -9,14 +9,14 @@ const GenreBanner = ({ genre = "Action", description, image }) => {
       }}
     >
       {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+      <div className="absolute inset-0 bg-black bg-opacity-25 md:bg-opacity-50"></div>
 
       {/* Content */}
       <div className="relative z-[5] text-center px-4 py-20">
         <h2 className="text-4xl md:text-5xl font-extrabold tracking-wide mb-4">
           🎬 {genre}
         </h2>
-        <p className="text-lg md:text-xl max-w-3xl mx-auto text-white/90 leading-relaxed">
+        <p className="hidden md:block text-lg md:text-xl max-w-3xl mx-auto text-white/90 leading-relaxed">
           {description}
         </p>
       </div>
