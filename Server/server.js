@@ -442,7 +442,7 @@ const startServer = async () => {
         console.log(year);
         const imdb = list[85].textContent.slice(13).trim().split('/')[0]; // imdb
         const FullDirectors = list[86].textContent.slice(10).trim().split(','); // directors
-        const movieTags = list[88].textContent.slice(7).trim().split('/[|,]/').map((tag)=>tag.trim()); // tags
+        const movieTags = (list[88].textContent.slice(7).trim().includes(','))? list[88].textContent.slice(7).trim().split(',').map((tag)=>tag.trim()).filter((tag)=>(tag && tag.length !=0)):list[88].textContent.slice(7).trim().split('|').map((tag)=>tag.trim()).filter((tag)=>(tag && tag.length !=0)); // tags
         let language = list[89].textContent.slice(9).trim().split('|').map((lang)=> lang.trim()); // language
         language = language.map((lang)=>lang.toLocaleUpperCase())
         if(language.includes('ENGLISH')){
